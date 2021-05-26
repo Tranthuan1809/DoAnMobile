@@ -2,10 +2,11 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { View, Text } from "react-native";
 import CustomHome from './screen/Home/CustomHomeScreen'
 import CustomProduct from './screen/SanPham/CustomProductScreen'
 import CustomDanhTrai from './screen/DoanhTrai/CustomDoanhTraiScreen'
+import QRCode from './screen/QRcode/QRCode'
+import CustomNews from './screen/News/CustomNewsScreen'
 
 
 function CustomHomeScreen() {
@@ -14,15 +15,14 @@ function CustomHomeScreen() {
 function CustomProductScreen() {
   return <CustomProduct />
 }
-function C() {
-  return (
-    <View>
-      <Text>Hello C</Text>
-    </View>
-  );
+function QRCodeScreen() {
+  return <QRCode />
 }
 function DanhTraiScreen() {
   return <CustomDanhTrai />
+}
+function CustomNewsScreen() {
+  return <CustomNews />
 }
 
 const Tab = createBottomTabNavigator();
@@ -39,6 +39,8 @@ function MyTabs() {
           }
           if (route.name === "Sản phẩm") {
             iconName = focused ? "cart" : "cart";
+          }if (route.name === "Tin tức") {
+            iconName = focused ? "newspaper" : "newspaper";
           }
           if (route.name === "Doanh nghiệp") {
             iconName = focused ? "bar-chart-sharp" : "bar-chart-sharp";
@@ -55,8 +57,9 @@ function MyTabs() {
     >
       <Tab.Screen name="Trang chủ" component={CustomHomeScreen} />
       <Tab.Screen name="Sản phẩm" component={CustomProductScreen} />
-      <Tab.Screen name="Mã QR" component={C} />
+      <Tab.Screen name="Mã QR" component={QRCodeScreen} />
       <Tab.Screen name="Doanh nghiệp" component={DanhTraiScreen} />
+      <Tab.Screen name="Tin tức" component={CustomNewsScreen} />
     </Tab.Navigator>
   );
 }
