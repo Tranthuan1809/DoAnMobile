@@ -1,5 +1,5 @@
 import { SearchBar } from "react-native-elements";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Text,
   Dimensions,
@@ -8,6 +8,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -39,16 +40,78 @@ const Data = [
 ];
 export default function App() {
   const navigation = useNavigation();
-  const [search, updateSearch] = useState();
+  const [search, updateSearch] = useState('');
+
+  const [filterData,setFilterData]  = useState([]);
+  const [masterData,setMasterData]  = useState([]);
+  const fetchPost = () => {
+
+    useEffect(() => {
+      fetchPost();
+      return() => {
+
+      }
+    },[])
+
+    const apiURL = 'https://jsonplaceholder.typicode.com/posts';
+    fetch(apiURL)
+    .then((response) => response.json())
+    .then((responseJson) => {
+        searchFilter(responseJson);
+        setMasterData(responseJson);
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
+  const searchFilter = (text) => {
+    if(text){
+      const newData = masterData.filter((item) => {
+        const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1; 
+      });
+      setFilterData(newData);
+      updateSearch(text);
+    } else{
+      setFilterData(masterData);
+      updateSearch(text)
+    }
+  }
+
+const ItemView = ({item}) => {
+  return(
+    <Text style={styles.itemStyle}>
+      {item.id}{'. '}{item.title.toUpperCase()}
+    </Text>
+  )
+}
+
+const ItemSeparatorView  = () =>{
+  return(
+    <View
+      style={{height:0.5,width:'100%',backgroundColor:'#c8c8c8'}}
+    />
+  )
+}
+
+
   return (
     <SafeAreaView style={{flex:1}}>
       <SearchBar
           containerStyle={style.container}
           inputContainerStyle={style.input}
           placeholder="Type Here..."
-          onChangeText={updateSearch}
+          onChangeText={(text) => searchFilter(text)}
           value={search}
+          underlineColorAndroid="transparent"
         />
+        <FlatList
+          data={filterData}
+          keyExtractor={(item,index) => index.toString()}
+          ItemSeparatorComponent={ItemSeparatorView}
+          renderItem={ItemView}
+          />
       <ScrollView>
         <View style={style.slide}>
           <SwiperFlatList
@@ -100,6 +163,9 @@ export default function App() {
 }
 const { width } = Dimensions.get("window");
 const style = StyleSheet.create({
+  itemStyle:{
+    padding:25
+  },  
   container: {
     backgroundColor: "#338f38",
     height: 55,
