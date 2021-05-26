@@ -7,8 +7,12 @@ import CustomProduct from './screen/SanPham/CustomProductScreen'
 import CustomDanhTrai from './screen/DoanhTrai/CustomDoanhTraiScreen'
 import QRCode from './screen/QRcode/QRCode'
 import CustomNews from './screen/News/CustomNewsScreen'
+import Test from './screen/Home/TestSearch'
 
 
+function TestScreen() {
+  return <Test />
+}
 function CustomHomeScreen() {
   return <CustomHome />
 }
@@ -55,6 +59,7 @@ function MyTabs() {
         inactiveTintColor: "gray",
       }}
     >
+      <Tab.Screen name="Search" component={TestScreen} />
       <Tab.Screen name="Trang chủ" component={CustomHomeScreen} />
       <Tab.Screen name="Sản phẩm" component={CustomProductScreen} />
       <Tab.Screen name="Mã QR" component={QRCodeScreen} />

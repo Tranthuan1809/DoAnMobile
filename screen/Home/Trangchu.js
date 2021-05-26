@@ -1,5 +1,5 @@
 import { SearchBar } from "react-native-elements";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   Dimensions,
@@ -9,6 +9,7 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
+  Alert,
 } from "react-native";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -38,68 +39,89 @@ const Data = [
     src: require("../../assets/slide-bgr4.jpg"),
   },
 ];
+const ListData = [
+  {
+    id: "1",
+    title: "Phạm Hoài Tuấn",
+  },
+  {
+    id: "2",
+    title: "Đàm Quốc Lượng",
+  },
+  {
+    id: "3",
+    title: "Hoàng Văn Hiếu",
+  },
+  {
+    id: "4",
+    title: "Huỳnh Công Viên",
+  },
+  {
+    id: "5",
+    title: "Nguyễn Đại Mai Tiến",
+  }
+];
 export default function App() {
   const navigation = useNavigation();
-  const [search, updateSearch] = useState('');
+  const [filterData, setFilterData] = useState([]);
+  // const [masterData, setMasterData] = useState([]);
+  const [search, setfilterdData] = useState("");
 
-  const [filterData,setFilterData]  = useState([]);
-  const [masterData,setMasterData]  = useState([]);
-  const fetchPost = () => {
-
-    useEffect(() => {
-      fetchPost();
-      return() => {
-
-      }
-    },[])
-
-    const apiURL = 'https://jsonplaceholder.typicode.com/posts';
-    fetch(apiURL)
-    .then((response) => response.json())
-    .then((responseJson) => {
-        searchFilter(responseJson);
-        setMasterData(responseJson);
-    }).catch((error) => {
-      console.log(error);
-    })
-  }
-
+  // useEffect(() => {
+  //   fetchPost();
+  //   return () => {};
+  // }, []);
+  // const fetchPost = () => {
+  //   const apiURL = "https://jsonplaceholder.typicode.com/posts";
+  //   fetch(apiURL)
+  //     .then((response) => response.json())
+  //     .then((responseJson) => {
+  //       searchFilter(responseJson);
+  //       setMasterData(responseJson);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   const searchFilter = (text) => {
-    if(text){
-      const newData = masterData.filter((item) => {
-        const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+    if (text) {
+      const newData = ListData.filter((item) => {
+        const itemData = item.title
+          ? item.title.toUpperCase()
+          : "".toUpperCase();
         const textData = text.toUpperCase();
-        return itemData.indexOf(textData) > -1; 
+        return itemData.indexOf(textData) > -1;
       });
       setFilterData(newData);
-      updateSearch(text);
-    } else{
-      setFilterData(masterData);
-      updateSearch(text)
+      setfilterdData(text);
+    } else {
+      setFilterData(ListData);
+      setfilterdData(text);
     }
-  }
-
-const ItemView = ({item}) => {
-  return(
-    <Text style={styles.itemStyle}>
-      {item.id}{'. '}{item.title.toUpperCase()}
-    </Text>
-  )
-}
-
-const ItemSeparatorView  = () =>{
-  return(
-    <View
-      style={{height:0.5,width:'100%',backgroundColor:'#c8c8c8'}}
-    />
-  )
-}
-
-
+  };
+  const ItemView = ({ item }) => {
+    return (
+      <TouchableOpacity onPress={() => Alert.alert("click cailon")}>
+        <Text style={style.itemStyle}>
+          {item.id}
+          {". "}
+          {item.title.toUpperCase()}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+  const ItemSeparatorView = () => {
+    return (
+      <View
+        style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8" }}
+      />
+    );
+  };
   return (
-    <SafeAreaView style={{flex:1}}>
-      <SearchBar
-          containerStyle={style.container}
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ backgroundColor: "white" }}>
+        <SearchBar
+          containerStyle={style.textInputStyle}
           inputContainerStyle={style.input}
           placeholder="Type Here..."
           onChangeText={(text) => searchFilter(text)}
@@ -108,10 +130,11 @@ const ItemSeparatorView  = () =>{
         />
         <FlatList
           data={filterData}
-          keyExtractor={(item,index) => index.toString()}
+          keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ItemView}
-          />
+        />
+      </View>
       <ScrollView>
         <View style={style.slide}>
           <SwiperFlatList
@@ -131,41 +154,41 @@ const ItemSeparatorView  = () =>{
             )}
           />
         </View>
-          <View style={{ flexDirection: "row", marginTop: 5 }}>
-            <Text style={style.productNew}>Sản phẩm mới</Text>
-            <TouchableOpacity
-              style={{ marginTop: 4 }}
-              activeOpacity={0.5}
-              onPress={() => navigation.navigate("Sản phẩm mới")}
-            >
-              <Text style={style.getall}>Xem tất cả</Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <Product />
-          </View>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
-            <Text style={style.product}>Sản phẩm bán chạy</Text>
-            <TouchableOpacity
-              style={{ marginTop: 4 }}
-              activeOpacity={0.5}
-              onPress={() => navigation.navigate("Sản phẩm bán chạy")}
-            >
-              <Text style={style.getall}>Xem tất cả</Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <ProductSPBC />
-          </View>
+        <View style={{ flexDirection: "row", marginTop: 5 }}>
+          <Text style={style.productNew}>Sản phẩm mới</Text>
+          <TouchableOpacity
+            style={{ marginTop: 4 }}
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate("Sản phẩm mới")}
+          >
+            <Text style={style.getall}>Xem tất cả</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Product />
+        </View>
+        <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <Text style={style.product}>Sản phẩm bán chạy</Text>
+          <TouchableOpacity
+            style={{ marginTop: 4 }}
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate("Sản phẩm bán chạy")}
+          >
+            <Text style={style.getall}>Xem tất cả</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <ProductSPBC />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 const { width } = Dimensions.get("window");
 const style = StyleSheet.create({
-  itemStyle:{
-    padding:25
-  },  
+  itemStyle: {
+    padding: 15,
+  },
   container: {
     backgroundColor: "#338f38",
     height: 55,
@@ -185,15 +208,23 @@ const style = StyleSheet.create({
   productNew: {
     fontSize: 20,
     marginLeft: 7,
-    marginRight:'40%',
+    marginRight: "40%",
     fontWeight: "bold",
     color: "#338f38",
   },
   product: {
     fontSize: 20,
-    marginRight:'27%',
+    marginRight: "27%",
     marginLeft: 7,
     fontWeight: "bold",
     color: "#338f38",
+  },
+  textInputStyle: {
+    height: 60,
+    borderWidth: 1,
+    paddingLeft: 20,
+    margin: 5,
+    borderColor: "red",
+    backgroundColor: "white",
   },
 });
