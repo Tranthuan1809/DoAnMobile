@@ -20,7 +20,7 @@ function CustomProductScreen() {
         component={DoanhTraiScreen}
         name="Doanh trại"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor:'green'}}
+        options={{headerTintColor:'green' ,headerBackTitleVisible: false}}
         component={DetailDanhTraiScreen}
         name="Thông tin công ty"></Stack.Screen>
     </Stack.Navigator>

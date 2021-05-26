@@ -26,6 +26,7 @@ const ListSP = [
     src: require("../../assets/hanh-tay.jpg"),
     name: "Hành tây",
     gia: "11.000",
+    info: "Cây cà rốt là một loài cây thân thảo, có tên khoa học là Dacus, được người dân Trung Quốc gọi là củ cải đỏ. Đây là cây ăn củ ( chính là phần rễ cái) và sống trong khoảng từ 1 đến 2 năm cho đến khi được thu hoạch. Trong tiếng Ấn Độ, cà rốt được gọi là गाजर, còn tên khoa học là Daucus.",
   },
   {
     key: "3",
@@ -83,7 +84,7 @@ const style = StyleSheet.create({
     width: 170,
     maxHeight: 166,
     marginHorizontal: 6,
-    backgroundColor: "#04B431",
+    backgroundColor: "#338f38",
     borderStyle: "solid",
     borderColor: "#81F781",
     borderWidth: 1,

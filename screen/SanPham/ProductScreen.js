@@ -2,11 +2,9 @@ import { SearchBar } from "react-native-elements";
 import React, { useState } from "react";
 import {
   Text,
-  Dimensions,
   StyleSheet,
   View,
   ScrollView,
-  Alert,
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

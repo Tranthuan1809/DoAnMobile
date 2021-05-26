@@ -8,9 +8,9 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Product from "./Product";
 import ProductSPBC from "./ProductSPBC";
 import { useNavigation } from "@react-navigation/native";

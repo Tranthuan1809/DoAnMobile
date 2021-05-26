@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import {
-  SafeAreaView,
   Text,
   StyleSheet,
   FlatList,
@@ -10,6 +9,8 @@ import {
 } from "react-native";
 import { SearchBar } from "react-native-elements";
 import {useNavigation} from '@react-navigation/native'
+import { SafeAreaView } from "react-native-safe-area-context";
+
 
 function Doanhtrai() {
   const [search, setSearch] = useState();

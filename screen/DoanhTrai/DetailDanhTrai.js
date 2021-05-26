@@ -64,9 +64,11 @@ function DetailDanhTrai() {
                 paddingTop: "5%",
               }}
             >
-              Danh sách sản phẩm:{" "}
+              Danh sách sản phẩm:
             </Title>
+            <View style={{marginHorizontal:'1%'}}>
             <Vegetable />
+            </View>
           </ScrollView>
         </SafeAreaView>
       </SafeAreaView>
@@ -81,7 +83,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: "green",
-    borderTopLeftRadius: 60,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     paddingTop:20
   },
   font: { fontWeight: "bold" },

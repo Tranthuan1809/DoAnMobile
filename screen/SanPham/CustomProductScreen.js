@@ -31,20 +31,20 @@ function CustomProductScreen() {
         component={ProductScreen}
         name="Sản phẩm"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor:'green'}}
+        options={{headerTintColor:'green' ,headerBackTitleVisible: false}}
         component={GetAllScreen}
         name="Sản phẩm rau sạch"></Stack.Screen>
         <Stack.Screen
         component={DetailProductScreen}
-        options={{headerTintColor:'green'}}
+        options={{headerTintColor:'green' ,headerBackTitleVisible: false}}
         name="Chi tiết sản phẩm"></Stack.Screen>
         <Stack.Screen
         component={GetAllFruitScreen}
-        options={{headerTintColor:'green'}}
+        options={{headerTintColor:'green' ,headerBackTitleVisible: false}}
         name="Sản phẩm củ, quả"></Stack.Screen>
         <Stack.Screen
         component={GetAllSeedScreen}
-        options={{headerTintColor:'green'}}
+        options={{headerTintColor:'green' ,headerBackTitleVisible: false}}
         name="Sản phẩm hạt"></Stack.Screen>
        
     </Stack.Navigator>

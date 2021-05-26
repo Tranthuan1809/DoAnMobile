@@ -27,15 +27,15 @@ function CustomHomeScreen() {
         component={TrangchuScreen}
         name="Trang chu"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor: 'green'}}
+        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
         component={DetailProductScreen}
         name="Chi tiết sản phẩm"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor: 'green'}}
+        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
         component={GetAllScreen}
         name="Sản phẩm mới"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor: 'green'}}
+        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
         component={GetallSPBCScreen}
         name="Sản phẩm bán chạy"></Stack.Screen>
     </Stack.Navigator>
