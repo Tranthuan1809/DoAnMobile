@@ -87,11 +87,13 @@ const styles = StyleSheet.create({
   container: { backgroundColor: "white" },
   itemStyle: { padding: 15 },
   textInputStyle: {
-    height: 60,
+    height: 50,
     borderWidth: 1,
     paddingLeft: 20,
     margin: 5,
-    borderColor: "red",
+    borderColor: "#ccc",
     backgroundColor: "white",
+    borderRadius:15,
+    marginTop:20
   },
 });

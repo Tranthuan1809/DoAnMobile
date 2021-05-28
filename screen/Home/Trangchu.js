@@ -119,7 +119,12 @@ export default function App() {
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ backgroundColor: "white" }}>
+      <View
+        style={{
+          backgroundColor: "white",
+          padding:5
+        }}
+      >
         <SearchBar
           containerStyle={style.textInputStyle}
           inputContainerStyle={style.input}
@@ -220,11 +225,19 @@ const style = StyleSheet.create({
     color: "#338f38",
   },
   textInputStyle: {
-    height: 60,
+    height: 50,
     borderWidth: 1,
-    paddingLeft: 20,
+    paddingLeft: 15,
     margin: 5,
-    borderColor: "red",
+    borderTopColor: "#ccc",
+    borderRightColor: "#ccc",
+    borderLeftColor: "#ccc",
+    borderBottomColor: "#ccc",
     backgroundColor: "white",
+    borderRadius:15,
+    alignItems:"center",
+    justifyContent:"space-between",
+    display:"flex"
+    
   },
 });

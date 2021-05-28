@@ -27,7 +27,10 @@ export default function App() {
       />
       <ScrollView>
           <View style={{ flexDirection: "row" }}>
-            <Text style={style.product}>Sản phẩm rau sạch</Text>
+            <Text
+             style={style.product}
+             >
+               Sản phẩm rau sạch</Text>
             <TouchableOpacity
               style={{ marginTop: 4 }}
               activeOpacity={0.5}
@@ -97,6 +100,8 @@ const style = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     backgroundColor: "#338f38",
+    borderTopRightRadius:10,
+    minWidth:200
   },
   titleSeed: {
     fontSize: 22,
@@ -107,6 +112,9 @@ const style = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     backgroundColor: "#338f38",
+    borderTopRightRadius:10,
+    minWidth:180
+
   },
   cuqua: {
     fontSize: 22,
@@ -118,5 +126,6 @@ const style = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     backgroundColor: "#338f38",
+    borderTopRightRadius:10
   },
 });
