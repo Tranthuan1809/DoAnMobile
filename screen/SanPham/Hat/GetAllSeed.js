@@ -8,6 +8,9 @@ import {
   FlatList
 } from 'react-native';
 
+
+import {useNavigation} from '@react-navigation/native'
+
 const ListSP = [
   {
     id: 1,
@@ -59,13 +62,19 @@ const ListSP = [
   },
 ];
 function GetAllSeed  () {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={{backgroundColor:'#338f38',paddingVertical:5}}>
+    <SafeAreaView
+      style={{ backgroundColor: "#338f38", paddingVertical: 5, flex: 1 }}
+    >
       <FlatList
         numColumns={2}
         data={ListSP}
-        renderItem={({item}) => (
-          <TouchableOpacity style={styles.container}>
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.container}
+            onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
+          >
             <Image source={item.src} style={styles.image}></Image>
             <Text>{item.name}</Text>
             <Text>{item.gia}</Text>

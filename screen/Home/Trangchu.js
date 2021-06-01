@@ -67,6 +67,22 @@ export default function App() {
   // const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
+  const [showData,setShowData] = useState({
+    show:false
+  });
+
+  const showCancel = ( ) => {
+        setShowData({
+          show:true
+        })
+  }
+
+  const hideCancel = ( ) => {
+    setShowData({
+      show:false
+    })
+}
+
   // useEffect(() => {
   //   fetchPost();
   //   return () => {};
@@ -95,7 +111,7 @@ export default function App() {
       setFilterData(newData);
       setfilterdData(text);
     } else {
-      setFilterData(ListData);
+      setFilterData(null);
       setfilterdData(text);
     }
   };

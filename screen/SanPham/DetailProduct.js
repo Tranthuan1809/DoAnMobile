@@ -47,9 +47,9 @@ function DetailProduct() {
 }
 export default DetailProduct;
 const styles = StyleSheet.create({
-  container: {backgroundColor: 'green'},
-  font:{fontWeight:'bold'},
-  fontNG:{paddingBottom:'1%'},
-  content:{fontSize:14},
-  ctntext:{fontSize:16}
+  container: { backgroundColor: "green",flex:1 },
+  font: { fontWeight: "bold" },
+  fontNG: { paddingBottom: "1%" },
+  content: { fontSize: 14 },
+  ctntext: { fontSize: 16 },
 });

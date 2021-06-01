@@ -26,13 +26,13 @@ export default function App() {
         value={search}
       />
       <ScrollView>
-          <View style={{ flexDirection: "row" }}>
+          <View style={style.flexAll}>
             <Text
              style={style.product}
              >
                Sản phẩm rau sạch</Text>
             <TouchableOpacity
-              style={{ marginTop: 4 }}
+              style={style.titleAll}
               activeOpacity={0.5}
               onPress={() => navigation.navigate("Sản phẩm rau sạch")}
             >
@@ -40,10 +40,10 @@ export default function App() {
             </TouchableOpacity>
           </View>
           <Vagetable />
-          <View style={{ flexDirection: "row" }}>
+          <View style={style.flexAll}>
             <Text style={style.cuqua}>Sản phẩm củ, quả</Text>
             <TouchableOpacity
-              style={{ marginTop: 4 }}
+              style={style.titleAll}
               activeOpacity={0.5}
               onPress={() => navigation.navigate("Sản phẩm củ, quả")}
             >
@@ -51,10 +51,10 @@ export default function App() {
             </TouchableOpacity>
           </View>
           <Fruit />
-          <View style={{ flexDirection: "row" }}>
+          <View style={style.flexAll}>
             <Text style={style.titleSeed}>Sản phẩm hạt</Text>
             <TouchableOpacity
-              style={{ marginTop: 4 }}
+              style={style.titleAll}
               activeOpacity={0.5}
               onPress={() => navigation.navigate("Sản phẩm hạt")}
             >
@@ -70,6 +70,10 @@ const style = StyleSheet.create({
   container: {
     backgroundColor: "#338f38",
     borderBottomColor: "#338f38",
+  },
+  flexAll: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   input: {
     backgroundColor: "white",
@@ -93,32 +97,35 @@ const style = StyleSheet.create({
   },
   product: {
     fontSize: 22,
-    marginRight: '22%',
+    // marginRight: '22%',
     marginTop: 5,
     paddingLeft: 5,
     paddingRight: 8,
     fontWeight: "bold",
     color: "white",
     backgroundColor: "#338f38",
-    borderTopRightRadius:10,
-    minWidth:200
+    borderTopRightRadius: 10,
+    minWidth: 180,
+  },
+  titleAll: {
+    marginTop: 4,
+    marginRight: 20,
   },
   titleSeed: {
     fontSize: 22,
-    marginRight: '36%',
+    // marginRight: "36%",
     marginTop: 10,
     paddingLeft: 5,
     paddingRight: 8,
     fontWeight: "bold",
     color: "white",
     backgroundColor: "#338f38",
-    borderTopRightRadius:10,
-    minWidth:180
-
+    borderTopRightRadius: 10,
+    minWidth: 180,
   },
   cuqua: {
     fontSize: 22,
-    marginRight: '26%',
+    // marginRight: "26%",
     marginTop: 10,
     paddingLeft: 5,
     paddingBottom: 1,
@@ -126,6 +133,6 @@ const style = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     backgroundColor: "#338f38",
-    borderTopRightRadius:10
+    borderTopRightRadius: 10,
   },
 });
