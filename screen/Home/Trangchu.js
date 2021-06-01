@@ -67,21 +67,8 @@ export default function App() {
   // const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
-  const [showData,setShowData] = useState({
-    show:false
-  });
 
-  const showCancel = ( ) => {
-        setShowData({
-          show:true
-        })
-  }
 
-  const hideCancel = ( ) => {
-    setShowData({
-      show:false
-    })
-}
 
   // useEffect(() => {
   //   fetchPost();
