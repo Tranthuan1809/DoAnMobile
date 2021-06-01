@@ -122,7 +122,7 @@ export default function App() {
       <View
         style={{
           backgroundColor: "white",
-          padding:5
+          padding:5,
         }}
       >
         <SearchBar
@@ -202,7 +202,7 @@ const style = StyleSheet.create({
   input: {
     backgroundColor: "white",
     borderRadius: 10,
-    height: 38,
+    height:40,
   },
   slide: { backgroundColor: "white", height: 160 },
   child: { width, justifyContent: "center" },
@@ -225,19 +225,14 @@ const style = StyleSheet.create({
     color: "#338f38",
   },
   textInputStyle: {
-    height: 50,
     borderWidth: 1,
-    paddingLeft: 15,
-    margin: 5,
-    borderTopColor: "#ccc",
-    borderRightColor: "#ccc",
-    borderLeftColor: "#ccc",
-    borderBottomColor: "#ccc",
-    backgroundColor: "white",
-    borderRadius:15,
+    borderTopColor: "#338f38",
+    borderRightColor: "#338f38",
+    borderLeftColor: "#338f38",
+    borderBottomColor: "#338f38",
+    backgroundColor: "#338f38",
     alignItems:"center",
     justifyContent:"space-between",
-    display:"flex"
     
   },
 });
