@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button ,Alert} from 'react-native';
+import { Text, View, StyleSheet, Button ,Alert, Linking} from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import {useNavigation} from '@react-navigation/native'
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -12,10 +13,19 @@ export default function App() {
       setHasPermission(status === 'granted');
     })();
   }, []);
-
+  const navigation = useNavigation();
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    Alert.alert(`${data}`);
+    Alert.alert(`${data}`, "Bạn có muốn đến trang này",[
+
+      {
+        text:"Cancel"
+      },
+      {
+        text:"OK",
+        onPress: () => Linking.openURL(`${data}`)
+      }
+    ]);
   };
 
   if (hasPermission === null) {

@@ -59,16 +59,13 @@ const ListData = [
   {
     id: "5",
     title: "Nguyễn Đại Mai Tiến",
-  }
+  },
 ];
 export default function App() {
   const navigation = useNavigation();
   const [filterData, setFilterData] = useState([]);
   // const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
-
-
-
 
   // useEffect(() => {
   //   fetchPost();
@@ -116,18 +113,13 @@ export default function App() {
   const ItemSeparatorView = () => {
     return (
       <View
-        style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8" }}
+        style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8"}}
       />
     );
   };
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View
-        style={{
-          backgroundColor: "white",
-          padding:5,
-        }}
-      >
+    <SafeAreaView style={{ flex: 1}}>
+      <View style={{zIndex: 1}}>
         <SearchBar
           containerStyle={style.textInputStyle}
           inputContainerStyle={style.input}
@@ -143,7 +135,7 @@ export default function App() {
           renderItem={ItemView}
         />
       </View>
-      <ScrollView>
+      <ScrollView style={{position: 'absolute',zIndex:0,top:'13%'}}>
         <View style={style.slide}>
           <SwiperFlatList
             autoplay
@@ -196,6 +188,7 @@ const { width } = Dimensions.get("window");
 const style = StyleSheet.create({
   itemStyle: {
     padding: 15,
+    backgroundColor:'white'
   },
   container: {
     backgroundColor: "#338f38",
@@ -205,7 +198,7 @@ const style = StyleSheet.create({
   input: {
     backgroundColor: "white",
     borderRadius: 10,
-    height:40,
+    height: 40,
   },
   slide: { backgroundColor: "white", height: 160 },
   child: { width, justifyContent: "center" },
@@ -234,8 +227,7 @@ const style = StyleSheet.create({
     borderLeftColor: "#338f38",
     borderBottomColor: "#338f38",
     backgroundColor: "#338f38",
-    alignItems:"center",
-    justifyContent:"space-between",
-    
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });

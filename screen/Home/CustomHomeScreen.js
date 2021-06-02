@@ -4,6 +4,7 @@ import TrangChu from './Trangchu';
 import DetailProduct from './DetailProduct';
 import GetAll from './GetallSPnew';
 import GetallSPBC from './GetAllSPBC';
+import QRcode from '../QRcode/QRCode'
 
 function TrangchuScreen() {
   return <TrangChu />;
@@ -16,6 +17,9 @@ function GetAllScreen() {
 }
 function GetallSPBCScreen() {
   return <GetallSPBC />;
+}
+function QRcodeScreen() {
+  return <QRcode />;
 }
 
 const Stack = createStackNavigator();
@@ -38,6 +42,10 @@ function CustomHomeScreen() {
         options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
         component={GetallSPBCScreen}
         name="Sản phẩm bán chạy"></Stack.Screen>
+        <Stack.Screen
+        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
+        component={QRcodeScreen}
+        name="QRcode"></Stack.Screen>
     </Stack.Navigator>
   );
 }

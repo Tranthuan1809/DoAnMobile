@@ -8,10 +8,8 @@ import {
   Image,
 } from "react-native";
 import { SearchBar } from "react-native-elements";
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-
 
 function Doanhtrai() {
   const [search, setfilterdData] = useState("");
@@ -20,9 +18,7 @@ function Doanhtrai() {
   const searchFilter = (text) => {
     if (text) {
       const newData = Data.filter((item) => {
-        const itemData = item.name
-          ? item.name.toUpperCase()
-          : "".toUpperCase();
+        const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
@@ -52,15 +48,10 @@ function Doanhtrai() {
     );
   };
 
-
   const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
-        style={{
-          backgroundColor: "white",
-          padding: 5,
-        }}
       >
         <SearchBar
           containerStyle={styles.container}
@@ -133,14 +124,14 @@ const styles = StyleSheet.create({
 const Data = [
   {
     key: "1",
-    id:1,
+    id: 1,
     src: require("../../assets/bgr1.jpg"),
     name: "Công ty TNHH nông sản sạch Việt Nam",
     address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
   },
   {
     key: "2",
-    id:2,
+    id: 2,
 
     src: require("../../assets/bgr2.jpg"),
     name: "Công ty nông sản sạch UD - UK",
@@ -148,7 +139,7 @@ const Data = [
   },
   {
     key: "3",
-    id:3,
+    id: 3,
 
     src: require("../../assets/bgr3.jpg"),
     name: "Công ty HHNN nông sản chất lượng",
@@ -156,7 +147,7 @@ const Data = [
   },
   {
     key: "4",
-    id:4,
+    id: 4,
 
     src: require("../../assets/bgr4.jpg"),
     name: "Công ty nông sản chất lượng cao",
@@ -164,7 +155,7 @@ const Data = [
   },
   {
     key: "5",
-    id:5,
+    id: 5,
 
     src: require("../../assets/bgr5.png"),
     name: "Công ty rau, củ, quả Family",
@@ -172,7 +163,7 @@ const Data = [
   },
   {
     key: "6",
-    id:6,
+    id: 6,
 
     src: require("../../assets/bgr6.jpg"),
     name: "Công ty Clean, quality agricultural products",
@@ -180,7 +171,7 @@ const Data = [
   },
   {
     key: "7",
-    id:7,
+    id: 7,
 
     src: require("../../assets/bgr7.jpg"),
     name: "Công ty TNHH nông sản sạch Phú Yên",
