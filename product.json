@@ -3,7 +3,9 @@
     {
       name:"tuan"
     },
-    {name:"luong"}
+    {
+      name:"luong"
+    },
     ]
   
 }
