@@ -150,17 +150,30 @@
   "farm": [
     {
       "key": 1,
-      "name": "",
-      "logo":"",
-      "address":"",
-      "boss":"",
-      "status":"",
-      "giayphep":"",
-      "mst":"",
-      "ngayhd":"",
-      "linhvuc":"",
-      "content":""
-      
+      "name": "Nông trại Greenbot",
+      "logo":"https://lh3.googleusercontent.com/proxy/-qqv5l7hH2lQqQJzee1Ga_G30GncKIGnxiCNg7BkwhiwDP078n2JYbRA8CaqAxqWq7GDJl0GZKt-RAoX1Jl33pke3dTYOKRvU1DijCyvnJ9qaq8K2NYU",
+      "address":"49 Thái Văn Lung",
+      "boss":"Phạm Hoài Tuấn",
+      "status":"Đang hoạt động",
+      "giayphep":"1800900",
+      "mst":"489495492",
+      "ngayhd":"03/06/2021",
+      "linhvuc":"Nông sản sạch",
+      "content":"Chuyên cung cấp các loại NÔNG SẢN phục vụ thị trường trong nước và quốc tế với đa dạng các loại sản phẩm",
+      "product":[
+          {
+         "id": 1,
+          "name": "Mồng tơi",
+          "src": "http://hb.check.net.vn/data/product/mainimages/original/product3253.png",
+          "price":17000,
+          "category":"Rau",
+         "code":"vgt009",
+          "nguongoc":"Nông trại Greenbot ",
+          "baoquan":"Bỏ ngăn mát",
+         "hsd":"Sử dụng trong vòng 25 ngày",
+         "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+         },
+      ]
     }
   ],
 }
