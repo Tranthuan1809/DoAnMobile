@@ -5,11 +5,7 @@
     {
       "id": "1",
       "title": "Star Wars",
-      "releaseYear": [
-        {
-          "name":"tuan",
-        }
-      ]
+      "releaseYear": "1985"
     },
     {
       "id": "2",
