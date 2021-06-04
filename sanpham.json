@@ -12,18 +12,6 @@
       "hsd":"Sử dụng trong vòng 15 ngày",
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
-    {
-      "id": 14,
-      "name": "Xà lách",
-      "src": "https://cdn.caythuocdangian.com/2019/03/rau-xa-lach-carol.jpg",
-      "price":20000,
-      "category":"Rau",
-      "code":"vgt001",
-      "nguongoc":"Nông trại Keho Lake",
-      "baoquan":"Bỏ ngăn mát",
-      "hsd":"Sử dụng trong vòng 15 ngày",
-      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
-    },
      {
       "id": 2,
       "name": "Rau má",
@@ -63,13 +51,13 @@
     {
       "id": 5,
       "name": "Rau cần",
-      "src": "https://minhcaumart.vn/media/com_eshop/products/2900531.jpg",
+      "src": "https://hachi.com.vn/wp-content/uploads/2017/07/rau-can-1024x716.jpg",
       "price":13000,
       "category":"Rau",
       "code":"vgt005",
       "nguongoc":"Nông trại ViMin",
       "baoquan":"Bỏ ngăn mát",
-      "hsd":"Sử dụng trong vòng 16 ngày",
+      "hsd": "Sử dụng trong vòng 16 ngày",
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
      {
@@ -84,18 +72,6 @@
       "hsd":"Sử dụng trong vòng 12 ngày",
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
-     {
-      "id": 6,
-      "name": "Rau ngót",
-      "src": "https://vinmec-prod.s3.amazonaws.com/images/20201125_143129_322415_ba-bau-khong-an-rau-g.max-800x800.jpg",
-      "price":13000,
-      "category":"Rau",
-      "code":"vgt006",
-      "nguongoc":"Nông trại Integration",
-      "baoquan":"Bỏ ngăn mát",
-      "hsd":"Sử dụng trong vòng 12 ngày",
-      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
-    },
     {
       "id": 7,
       "name": "Cải ngọt",
@@ -106,18 +82,6 @@
       "nguongoc":"Nông trại Vân Nội",
       "baoquan":"Bỏ ngăn mát",
       "hsd":"Sử dụng trong vòng 11 ngày",
-      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
-    },
-    {
-      "id": 8,
-      "name": "Cải xanh",
-      "src": "https://thucphamdongxanh.com/wp-content/uploads/2019/09/C%C3%A1ch-l%C3%A0m-th%E1%BB%8Bt-b%C3%B2-cu%E1%BB%91n-l%C3%A1-c%E1%BA%A3i-b%E1%BA%B9-xanh-nhanh-g%E1%BB%8Dn-l%E1%BA%B9-3.jpg",
-      "price":9000,
-      "category":"Rau",
-      "code":"vgt008",
-      "nguongoc":"Nông trại Tâm Đạt",
-      "baoquan":"Bỏ ngăn mát",
-      "hsd":"Sử dụng trong vòng 23 ngày",
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
       {
@@ -139,6 +103,116 @@
       "price":17000,
       "category":"Rau",
       "code":"vgt009",
+      "nguongoc":"Nông trại Greenbot ",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 25 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    }
+  ],
+  "sells": [
+    {
+      "id": 1,
+      "name": "Rau muống",
+      "src": "https://hongngochospital.vn/wp-content/uploads/2013/11/rau-muong.jpg",
+      "price":20000,
+      "category":"Rau",
+      "code":"vgt001",
+      "nguongoc":"Nông trại Vinafarm",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 15 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+     {
+      "id": 2,
+      "name": "Rau bí",
+      "src": "https://image.thanhnien.vn/1024/uploaded/ngocthanh/2020_04_21/dot_bi-nb2_oynv.jpg",
+      "price":25000,
+      "category":"Rau",
+      "code":"vgt002",
+      "nguongoc":"Nông trại Xanh",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 21 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+     {
+      "id": 3,
+      "name": "Rau ngổ",
+      "src": "https://image.thanhnien.vn/1024/uploaded/ngocthanh/2020_04_21/dot_bi-nb2_oynv.jpg",
+      "price":10000,
+      "category":"Rau",
+      "code":"vgt003",
+      "nguongoc":"Nông trại Rau sạch",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 17 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+    {
+      "id": 4,
+      "name": "Đậu ngọc",
+      "src": "https://product.hstatic.net/200000124083/product/z2020688900382_c2cca2a6ce1515d247a3e4299bbcbc81_d87885823e7841378fc3a9216c185ed9_grande.jpg",
+      "price":14000,
+      "category":"Hạt",
+      "code":"s025",
+      "nguongoc":"Nông trại Farm Logo",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 11 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+    {
+      "id": 5,
+      "name": "Đậu cô ve",
+      "src": "https://product.hstatic.net/1000282430/product/upload_01cc5ccd04c846649f6a506dfcc82fcd.jpg",
+      "price":13000,
+      "category":"Hạt",
+      "code":"s030",
+      "nguongoc":"Nông trại ViMin",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd": "Sử dụng trong vòng 16 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+     {
+      "id": 5,
+      "name": "Bạch biển đậu",
+      "src": "https://yhoccotruyenvn.com/wp-content/uploads/2020/02/D%C6%B0%E1%BB%A3c-li%E1%BB%87u-b%E1%BA%A1ch-bi%E1%BB%83n-%C4%91%E1%BA%ADu-c%C3%B3-nhi%E1%BB%81u-t%C3%A1c-d%E1%BB%A5ng-%C4%91i%E1%BB%81u-tr%E1%BB%8B-b%E1%BB%87nh-hi%E1%BB%87u-qu%E1%BA%A3.jpg",
+      "price":13000,
+      "category":"Hạt",
+      "code":"vgt006",
+      "nguongoc":"Nông trại Vu Lam",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 12 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+    {
+      "id": 7,
+      "name": "Xoài",
+      "src": "https://yhoccotruyenvn.com/wp-content/uploads/2020/02/D%C6%B0%E1%BB%A3c-li%E1%BB%87u-b%E1%BA%A1ch-bi%E1%BB%83n-%C4%91%E1%BA%ADu-c%C3%B3-nhi%E1%BB%81u-t%C3%A1c-d%E1%BB%A5ng-%C4%91i%E1%BB%81u-tr%E1%BB%8B-b%E1%BB%87nh-hi%E1%BB%87u-qu%E1%BA%A3.jpg",
+      "price":12000,
+      "category":"Củ quả",
+      "code":"fr021",
+      "nguongoc":"Nông trại Vân Nội",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 11 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+      {
+      "id": 9,
+      "name": "Ổi",
+      "src": "http://suckhoedoisong.vn/Images/thanhloan/2016/11/19/8-loi-ich-tuyet-voi-cua-trai-oi-8.jpg",
+      "price":17000,
+      "category":"Củ quả",
+      "code":"fr027",
+      "nguongoc":"Nông trại V-Organic",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 25 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
+    },
+    {
+      "id": 10,
+      "name": "Dưa hấu",
+      "src": "https://product.hstatic.net/1000191320/product/7eb870a7a4407d96effa815ce8fa4a75_master.jpg",
+      "price":17000,
+      "category":"Củ quả",
+      "code":"fr021",
       "nguongoc":"Nông trại Greenbot ",
       "baoquan":"Bỏ ngăn mát",
       "hsd":"Sử dụng trong vòng 25 ngày",
