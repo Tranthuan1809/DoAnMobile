@@ -1,7 +1,7 @@
 {
   "vegetable": [
     {
-      "key": 1,
+      "id": 1,
       "name": "Xà lách",
       "src": "https://cdn.caythuocdangian.com/2019/03/rau-xa-lach-carol.jpg",
       "price":20000,
@@ -13,7 +13,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
      {
-      "key": 2,
+      "id": 2,
       "name": "Rau má",
       "src": "https://gonhub.com/wp-content/uploads/2018/10/uong-nuoc-rau-ma-moi-ngay-co-tot-khong-20180804-08-2018-211248.jpg",
       "price":25000,
@@ -25,7 +25,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
      {
-      "key": 3,
+      "id": 3,
       "name": "Rau ngò",
       "src": "https://lh3.googleusercontent.com/proxy/Z3rln3IyfsL0c4rPA9BJ0SC1nCUVowx7qGHkp5JrvFxX_t_FfWUMAPnCBxgiKJYsjY1CF9DmSo7IyVIVG3FAMHOT9NQHgKoTH36XKDbGg_u0pY3CW4mxmiUepjPoaJEYb0c51oFKMvVPs1_9dso",
       "price":10000,
@@ -37,7 +37,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
     {
-      "key": 4,
+      "id": 4,
       "name": "Diếp cá",
       "src": "https://vinmec-prod.s3.amazonaws.com/images/20201118_142647_218113_rau-diep-ca-chua-nh.max-1800x1800.jpg",
       "price":14000,
@@ -49,7 +49,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
     {
-      "key": 5,
+      "id": 5,
       "name": "Rau cần",
       "src": "https://minhcaumart.vn/media/com_eshop/products/2900531.jpg",
       "price":13000,
@@ -61,7 +61,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
      {
-      "key": 5,
+      "id": 5,
       "name": "Rau ngót",
       "src": "https://vinmec-prod.s3.amazonaws.com/images/20201125_143129_322415_ba-bau-khong-an-rau-g.max-800x800.jpg",
       "price":13000,
@@ -73,7 +73,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
      {
-      "key": 6,
+      "id": 6,
       "name": "Rau ngót",
       "src": "https://vinmec-prod.s3.amazonaws.com/images/20201125_143129_322415_ba-bau-khong-an-rau-g.max-800x800.jpg",
       "price":13000,
@@ -85,7 +85,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
     {
-      "key": 7,
+      "id": 7,
       "name": "Cải ngọt",
       "src": "https://thucphamdongxanh.com/wp-content/uploads/2019/09/4539428cai_ngot4.jpg",
       "price":12000,
@@ -97,7 +97,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
     {
-      "key": 8,
+      "id": 8,
       "name": "Cải xanh",
       "src": "https://thucphamdongxanh.com/wp-content/uploads/2019/09/C%C3%A1ch-l%C3%A0m-th%E1%BB%8Bt-b%C3%B2-cu%E1%BB%91n-l%C3%A1-c%E1%BA%A3i-b%E1%BA%B9-xanh-nhanh-g%E1%BB%8Dn-l%E1%BA%B9-3.jpg",
       "price":9000,
@@ -109,7 +109,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
       {
-      "key": 9,
+      "id": 9,
       "name": "Cải xanh",
       "src": "https://organicfood.vn/image/cache/catalog/cai-be-xanh-500x500.jpg",
       "price":17000,
@@ -121,7 +121,7 @@
       "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     },
     {
-      "key": 10,
+      "id": 10,
       "name": "Mồng tơi",
       "src": "http://hb.check.net.vn/data/product/mainimages/original/product3253.png",
       "price":17000,
@@ -149,7 +149,7 @@
   ],
   "farm": [
     {
-      "key": 1,
+      "id": 1,
       "name": "Nông trại Greenbot",
       "logo":"https://lh3.googleusercontent.com/proxy/-qqv5l7hH2lQqQJzee1Ga_G30GncKIGnxiCNg7BkwhiwDP078n2JYbRA8CaqAxqWq7GDJl0GZKt-RAoX1Jl33pke3dTYOKRvU1DijCyvnJ9qaq8K2NYU",
       "address":"49 Thái Văn Lung",
