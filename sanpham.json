@@ -135,16 +135,30 @@
   ],
   "fruit": [
     {
-      "id": "1",
-      "title": "Star Wars",
-      "releaseYear": "1985"
+      "id": 11,
+      "name": "Mồng tơi",
+      "src": "http://hb.check.net.vn/data/product/mainimages/original/product3253.png",
+      "price":17000,
+      "category":"Rau",
+      "code":"vgt009",
+      "nguongoc":"Nông trại Greenbot ",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 25 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     }
   ],
   "seed": [
     {
-      "id": "1",
-      "title": "Star Wars",
-      "releaseYear": "1985"
+      "id": 12,
+      "name": "Cải xanh",
+      "src": "https://organicfood.vn/image/cache/catalog/cai-be-xanh-500x500.jpg",
+      "price":17000,
+      "category":"Rau",
+      "code":"vgt009",
+      "nguongoc":"Nông trại V-Organic",
+      "baoquan":"Bỏ ngăn mát",
+      "hsd":"Sử dụng trong vòng 25 ngày",
+      "content":"Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate"
     }
   ],
   "farm": [
