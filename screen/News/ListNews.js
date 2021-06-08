@@ -73,7 +73,8 @@ const Data = [
     title: "Điểm bán nông sản sạch, tích quỷ ủng hộ bà con vùng dịch",
     summary:
       "Trong suốt năm 2020, cả nước rộ lên phong trào giải cứu nông sản cho các địa phương nằm trong vùng dịch như Hải Dương, Vĩnh Phúc, Hưng Yên",
-    content: "Nội dung",
+    content:
+      "Nông sản là những sản phẩm hoặc bán thành phẩm của ngành sản xuất hàng hóa thông qua gây trồng và phát triển của cây trồng. Sản phẩm nông nghiệp bao gồm nhiều nhóm hàng thực phẩm, tơ sợi, nhiên liệu, nguyên vật liệu, dược phẩm và ma túy bất hợp pháp (thuốc lá, cần sa), các sản phẩm độc đáo đặc thù. Ngày nay, nông sản còn hàm nghĩa những sản phẩm từ hoạt động làm vườn và thực tế nông sản thường được hiểu là những sản phẩm hàng hóa được làm ra từ tư liệu sản xuất là đất. \n Nông sản hàng hoá làNông sản hàng hóa (cash crops) là khái niệm dùng để chỉ các loại nông sản mà người nông dân sản xuất ra với mục đích bán ra thị trường. Ngược với nông sản hàng hóa là nông sản phục vụ cho mục đích tự sản, tự tiêu. \n Hàng nông sản bao gồm một vi phạm khá rộng các loại hàng hoá có nguồn gốc từ hoạt động nông nghiệp như: \n -Các sản phẩm nông nghiệp cơ bản:lúa gạo, lúa mì, bột mì, sữa, động vật tươi sống (trừ cá và các sản phẩm từ cá), cà phê, hồ tiêu, hạt điều, chè, rau quả tươi,….) \n -Các sản phẩm phái sinh: bánh mì, bơ, dầu ăn, thịt,….. \n -Các sản phẩm được chế biến từ sản phẩm nông nghiệp: bánh kẹo, sản phẩm từ sữa, xúc xích, nước ngọt, rượu, bia, thuốc lá, bông xơ, da động vật thô, DDSG và nhiều sản phầm khác.....",
   },
   {
     key: "3",
@@ -81,7 +82,8 @@ const Data = [
     title: "Giả cứu nông sản ở Hà Giang",
     summary:
       "Trong suốt năm 2020, cả nước rộ lên phong trào giải cứu nông sản cho các địa phương nằm trong vùng dịch như Hải Dương, Vĩnh Phúc, Hưng Yên",
-    content: "Nội dung",
+    content:
+      "Nông sản là những sản phẩm hoặc bán thành phẩm của ngành sản xuất hàng hóa thông qua gây trồng và phát triển của cây trồng. Sản phẩm nông nghiệp bao gồm nhiều nhóm hàng thực phẩm, tơ sợi, nhiên liệu, nguyên vật liệu, dược phẩm và ma túy bất hợp pháp (thuốc lá, cần sa), các sản phẩm độc đáo đặc thù. Ngày nay, nông sản còn hàm nghĩa những sản phẩm từ hoạt động làm vườn và thực tế nông sản thường được hiểu là những sản phẩm hàng hóa được làm ra từ tư liệu sản xuất là đất. \n Nông sản hàng hoá làNông sản hàng hóa (cash crops) là khái niệm dùng để chỉ các loại nông sản mà người nông dân sản xuất ra với mục đích bán ra thị trường. Ngược với nông sản hàng hóa là nông sản phục vụ cho mục đích tự sản, tự tiêu. \n Hàng nông sản bao gồm một vi phạm khá rộng các loại hàng hoá có nguồn gốc từ hoạt động nông nghiệp như: \n -Các sản phẩm nông nghiệp cơ bản:lúa gạo, lúa mì, bột mì, sữa, động vật tươi sống (trừ cá và các sản phẩm từ cá), cà phê, hồ tiêu, hạt điều, chè, rau quả tươi,….) \n -Các sản phẩm phái sinh: bánh mì, bơ, dầu ăn, thịt,….. \n -Các sản phẩm được chế biến từ sản phẩm nông nghiệp: bánh kẹo, sản phẩm từ sữa, xúc xích, nước ngọt, rượu, bia, thuốc lá, bông xơ, da động vật thô, DDSG và nhiều sản phầm khác.....",
   },
   {
     key: "4",
@@ -89,6 +91,7 @@ const Data = [
     title: "Vải được mùa, 100.00 VNĐ  Kg",
     summary:
       "Trong suốt năm 2020, cả nước rộ lên phong trào giải cứu nông sản cho các địa phương nằm trong vùng dịch như Hải Dương, Vĩnh Phúc, Hưng Yên",
-    content: "Nội dung",
+    content:
+      "Nông sản là những sản phẩm hoặc bán thành phẩm của ngành sản xuất hàng hóa thông qua gây trồng và phát triển của cây trồng. Sản phẩm nông nghiệp bao gồm nhiều nhóm hàng thực phẩm, tơ sợi, nhiên liệu, nguyên vật liệu, dược phẩm và ma túy bất hợp pháp (thuốc lá, cần sa), các sản phẩm độc đáo đặc thù. Ngày nay, nông sản còn hàm nghĩa những sản phẩm từ hoạt động làm vườn và thực tế nông sản thường được hiểu là những sản phẩm hàng hóa được làm ra từ tư liệu sản xuất là đất. \n Nông sản hàng hoá làNông sản hàng hóa (cash crops) là khái niệm dùng để chỉ các loại nông sản mà người nông dân sản xuất ra với mục đích bán ra thị trường. Ngược với nông sản hàng hóa là nông sản phục vụ cho mục đích tự sản, tự tiêu. \n Hàng nông sản bao gồm một vi phạm khá rộng các loại hàng hoá có nguồn gốc từ hoạt động nông nghiệp như: \n -Các sản phẩm nông nghiệp cơ bản:lúa gạo, lúa mì, bột mì, sữa, động vật tươi sống (trừ cá và các sản phẩm từ cá), cà phê, hồ tiêu, hạt điều, chè, rau quả tươi,….) \n -Các sản phẩm phái sinh: bánh mì, bơ, dầu ăn, thịt,….. \n -Các sản phẩm được chế biến từ sản phẩm nông nghiệp: bánh kẹo, sản phẩm từ sữa, xúc xích, nước ngọt, rượu, bia, thuốc lá, bông xơ, da động vật thô, DDSG và nhiều sản phầm khác.....",
   },
 ];

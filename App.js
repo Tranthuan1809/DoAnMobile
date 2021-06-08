@@ -5,7 +5,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import CustomHome from './screen/Home/CustomHomeScreen'
 import CustomProduct from './screen/SanPham/CustomProductScreen'
 import CustomDanhTrai from './screen/DoanhTrai/CustomDoanhTraiScreen'
-import QRCode from './screen/QRcode/QRCode'
+import CustomQR from './screen/QRcode/CustomQRcode'
 import CustomNews from './screen/News/CustomNewsScreen'
 
 
@@ -16,7 +16,7 @@ function CustomProductScreen() {
   return <CustomProduct />
 }
 function QRCodeScreen() {
-  return <QRCode />
+  return <CustomQR />
 }
 function DanhTraiScreen() {
   return <CustomDanhTrai />

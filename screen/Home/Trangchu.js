@@ -16,6 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Product from "./Product";
 import ProductSPBC from "./ProductSPBC";
 import { useNavigation } from "@react-navigation/native";
+import ProductKM from "./ProductKM";
 
 const Data = [
   {
@@ -39,55 +40,33 @@ const Data = [
     src: require("../../assets/slide-bgr4.jpg"),
   },
 ];
-const ListData = [
-  {
-    id: "1",
-    title: "Phạm Hoài Tuấn",
-  },
-  {
-    id: "2",
-    title: "Đàm Quốc Lượng",
-  },
-  {
-    id: "3",
-    title: "Hoàng Văn Hiếu",
-  },
-  {
-    id: "4",
-    title: "Huỳnh Công Viên",
-  },
-  {
-    id: "5",
-    title: "Nguyễn Đại Mai Tiến",
-  },
-];
 export default function App() {
   const navigation = useNavigation();
   const [filterData, setFilterData] = useState([]);
-  // const [masterData, setMasterData] = useState([]);
+  const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
-  // useEffect(() => {
-  //   fetchPost();
-  //   return () => {};
-  // }, []);
-  // const fetchPost = () => {
-  //   const apiURL = "https://jsonplaceholder.typicode.com/posts";
-  //   fetch(apiURL)
-  //     .then((response) => response.json())
-  //     .then((responseJson) => {
-  //       searchFilter(responseJson);
-  //       setMasterData(responseJson);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  useEffect(() => {
+    fetchPost();
+    return () => {};
+  }, []);
+  const fetchPost = () => {
+    const apiURL = "http://192.168.1.20:44398/api/app/product";
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        searchFilter(responseJson.items);
+        setMasterData(responseJson.items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const searchFilter = (text) => {
     if (text) {
-      const newData = ListData.filter((item) => {
-        const itemData = item.title
-          ? item.title.toUpperCase()
+      const newData = masterData.filter((item) => {
+        const itemData = item.product.name
+          ? item.product.name.toUpperCase()
           : "".toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
@@ -101,25 +80,46 @@ export default function App() {
   };
   const ItemView = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => Alert.alert("click cailon")}>
-        <Text style={style.itemStyle}>
-          {item.id}
-          {". "}
-          {item.title.toUpperCase()}
-        </Text>
+      <TouchableOpacity
+        style={{
+          flexDirection: "row",
+          backgroundColor: "white",
+          justifyContent: "flex-start",
+          alignItems: "center",
+        }}
+        onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
+      >
+        <Image
+          style={{
+            width: 50,
+            height: 50,
+            resizeMode: "stretch",
+            marginHorizontal: "1.5%",
+          }}
+          source={{ uri: item.product.image }}
+        />
+        <Text>{item.product.name}</Text>
       </TouchableOpacity>
     );
   };
   const ItemSeparatorView = () => {
     return (
       <View
-        style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8"}}
+        style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8" }}
       />
     );
   };
   return (
-    <SafeAreaView style={{ flex: 1}}>
-      <View style={{zIndex: 1}}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View
+        style={{
+          position: "absolute",
+          top: "3.5%",
+          zIndex: 2,
+          flex: 1,
+          width: "100%",
+        }}
+      >
         <SearchBar
           containerStyle={style.textInputStyle}
           inputContainerStyle={style.input}
@@ -135,7 +135,7 @@ export default function App() {
           renderItem={ItemView}
         />
       </View>
-      <ScrollView style={{position: 'absolute',zIndex:0,top:'13%'}}>
+      <ScrollView style={{ zIndex: 0 ,marginTop:'15%'}}>
         <View style={style.slide}>
           <SwiperFlatList
             autoplay
@@ -180,16 +180,29 @@ export default function App() {
         <View>
           <ProductSPBC />
         </View>
+        <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <Text style={style.product1}>Sản phẩm khuyến mãi</Text>
+          <TouchableOpacity
+            style={{ marginTop: 4 }}
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate("Sản phẩm mới")}
+          >
+            <Text style={style.getall}>Xem tất cả</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <ProductKM />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 const { width } = Dimensions.get("window");
 const style = StyleSheet.create({
-  itemStyle: {
-    padding: 15,
-    backgroundColor:'white'
-  },
+  // itemStyle: {
+  //   flexDirection:'row',
+  //   backgroundColor: "white",
+  // },
   container: {
     backgroundColor: "#338f38",
     height: 55,
@@ -216,6 +229,13 @@ const style = StyleSheet.create({
   product: {
     fontSize: 20,
     marginRight: "27%",
+    marginLeft: 7,
+    fontWeight: "bold",
+    color: "#338f38",
+  },
+  product1: {
+    fontSize: 20,
+    marginRight: "20%",
     marginLeft: 7,
     fontWeight: "bold",
     color: "#338f38",

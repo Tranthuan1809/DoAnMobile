@@ -23,7 +23,7 @@ export default function App() {
       },
       {
         text:"OK",
-        onPress: () => Linking.openURL(`${data}`)
+        onPress: () =>navigation.navigate("Chi tiết khi quét QR", { name : `${data}`})
       }
     ]);
   };

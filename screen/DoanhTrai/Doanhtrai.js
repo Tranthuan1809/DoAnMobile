@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import {
   Text,
@@ -10,14 +10,33 @@ import {
 import { SearchBar } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView } from "react-native-gesture-handler";
 
 function Doanhtrai() {
-  const [search, setfilterdData] = useState("");
   const [filterData, setFilterData] = useState([]);
+  const [masterData, setMasterData] = useState([]);
+  const [search, setfilterdData] = useState("");
 
+  useEffect(() => {
+    fetchPost();
+    return () => {};
+  }, []);
+  const fetchPost = () => {
+    const apiURL =
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json";
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        searchFilter(responseJson.farm);
+        setMasterData(responseJson.farm);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const searchFilter = (text) => {
     if (text) {
-      const newData = Data.filter((item) => {
+      const newData = masterData.filter((item) => {
         const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
@@ -31,12 +50,25 @@ function Doanhtrai() {
   };
   const ItemView = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => Alert.alert("click cailon")}>
-        <Text style={styles.itemStyle}>
-          {item.id}
-          {". "}
-          {item.name.toUpperCase()}
-        </Text>
+      <TouchableOpacity
+        style={{
+          flexDirection: "row",
+          backgroundColor: "white",
+          justifyContent: "flex-start",
+          alignItems: "center",
+        }}
+        onPress={() => navigation.navigate("Thông tin công ty", { item })}
+      >
+        <Image
+          style={{
+            width: 70,
+            height: 50,
+            resizeMode: "stretch",
+            marginHorizontal: "1.5%",
+          }}
+          source={{ uri: item.logo }}
+        />
+        <Text>{item.name}</Text>
       </TouchableOpacity>
     );
   };
@@ -49,10 +81,20 @@ function Doanhtrai() {
   };
 
   const navigation = useNavigation();
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
+    )
+      .then((response) => response.json())
+      .then((json) => setData(json.farm))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View
-      >
+      <View style={{position:'absolute',top:"3.5%",zIndex:2,flex:1,width:'100%'}}>
         <SearchBar
           containerStyle={styles.container}
           inputContainerStyle={styles.input}
@@ -61,27 +103,31 @@ function Doanhtrai() {
           value={search}
         />
         <FlatList
+        
           data={filterData}
           keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ItemView}
         />
       </View>
-      <FlatList
-        numColumns={2}
-        data={Data}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.item}
-            onPress={() => navigation.navigate("Thông tin công ty", { item })}
-          >
-            <Image source={item.src} style={styles.image} />
-            <View>
-              <Text style={styles.text}>{item.name}</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
+      <ScrollView style={{zIndex: 0,marginTop:'15%'}}>
+        <FlatList
+          style={{ zIndex: 0}}
+          numColumns={2}
+          data={data}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.item}
+              onPress={() => navigation.navigate("Thông tin công ty", { item })}
+            >
+              <Image source={{ uri: item.logo }} style={styles.image} />
+              <View>
+                <Text style={styles.text}>{item.name}</Text>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -105,11 +151,12 @@ const styles = StyleSheet.create({
     paddingBottom: "2%",
   },
   image: {
-    resizeMode: "stretch",
+    resizeMode: "contain",
     width: "100%",
     height: 120,
     borderTopRightRadius: 7,
     borderTopLeftRadius: 7,
+    backgroundColor: "white",
   },
   text: {
     color: "white",
@@ -121,60 +168,3 @@ const styles = StyleSheet.create({
     padding: 15,
   },
 });
-const Data = [
-  {
-    key: "1",
-    id: 1,
-    src: require("../../assets/bgr1.jpg"),
-    name: "Công ty TNHH nông sản sạch Việt Nam",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-  {
-    key: "2",
-    id: 2,
-
-    src: require("../../assets/bgr2.jpg"),
-    name: "Công ty nông sản sạch UD - UK",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-  {
-    key: "3",
-    id: 3,
-
-    src: require("../../assets/bgr3.jpg"),
-    name: "Công ty HHNN nông sản chất lượng",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-  {
-    key: "4",
-    id: 4,
-
-    src: require("../../assets/bgr4.jpg"),
-    name: "Công ty nông sản chất lượng cao",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-  {
-    key: "5",
-    id: 5,
-
-    src: require("../../assets/bgr5.png"),
-    name: "Công ty rau, củ, quả Family",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-  {
-    key: "6",
-    id: 6,
-
-    src: require("../../assets/bgr6.jpg"),
-    name: "Công ty Clean, quality agricultural products",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-  {
-    key: "7",
-    id: 7,
-
-    src: require("../../assets/bgr7.jpg"),
-    name: "Công ty TNHH nông sản sạch Phú Yên",
-    address: "49 Thái Văn lung, Cẩm Lệ, Đà Nẵng",
-  },
-];

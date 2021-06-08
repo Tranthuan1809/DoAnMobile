@@ -1,23 +1,25 @@
-import React, { useState ,useEffect} from "react";
+import { useNavigation } from "@react-navigation/native";
+import React, { useState, useEffect } from "react";
 import {
   FlatList,
   Text,
   Image,
+  View,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 export default function Product() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
     )
       .then((response) => response.json())
       .then((json) => setData(json.fruit))
-      .then((error) => console.error(error));
+      .catch((error) => console.error(error));
   }, []);
   const navigation = useNavigation();
   return (
@@ -37,16 +39,19 @@ export default function Product() {
           >
             <Image
               style={{
-                resizeMode: "stretch",
                 height: 100,
                 width: "auto",
                 marginHorizontal: 2,
                 marginVertical: 2,
+                resizeMode:'stretch'
               }}
-              source={{uri: item.src}}
+              source={{ uri: item.src }}
             ></Image>
-            <Text>{item.name}</Text>
-            <Text>{item.price}</Text>
+            <View style={style.title}>
+              <Text style={style.text}>Mã: {item.code}</Text>
+              <Text style={style.text}>Tên: {item.name}</Text>
+              <Text style={style.text}>Giá: {item.price} VNĐ</Text>
+              </View>
           </TouchableOpacity>
         )}
       ></FlatList>
@@ -56,12 +61,14 @@ export default function Product() {
 const style = StyleSheet.create({
   productStyle: {
     width: 180,
-    height: 160,
-    marginHorizontal: 6,
+    maxHeight: 170,
+    marginHorizontal:4,
     borderWidth: 1,
     borderStyle: "solid",
     borderColor: "gray",
     borderRadius: 7,
     backgroundColor: "white",
   },
+  title: { paddingHorizontal: "2%", paddingBottom: "2%"  },
+  text: { fontWeight: "bold",color:'#118F3E' },
 });
