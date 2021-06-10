@@ -14,17 +14,25 @@ import { useNavigation } from "@react-navigation/native";
 function Getall() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [categoryID, setCategoryID] = useState([]);
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json")
+    fetch("http://10.0.3.81:44398/api/app/category")
       .then((response) => response.json())
-      .then((json) => setData(json.vegetable))
+      .then((json) => setCategoryID(json.items[0].id))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+  useEffect(() => {
+    fetch(`http://10.0.3.81:44398/api/app/product/by-category/${categoryID}`)
+      .then((response) => response.json())
+      .then((json) => setData(json.items))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, [categoryID]);
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ backgroundColor: "white", paddingVertical: 5 }}>
+    <SafeAreaView style={{ backgroundColor: "white", paddingVertical: 5 ,flex:1}}>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
@@ -38,7 +46,7 @@ function Getall() {
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
             >
               <Image
-                source={{ uri: item.src }}
+                source={{ uri: item.image }}
                 style={styles.image}
               ></Image>
               <View style={styles.title}>
