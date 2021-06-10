@@ -16,7 +16,7 @@ export default Product = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://192.168.1.20:44398/api/app/product")
+    fetch("http://10.0.3.81:44398/api/app/product")
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))

@@ -21,20 +21,6 @@ const data = [
   },
   {
     maCode: 2,
-    id: 14,
-    name: "Xà lách",
-    src: "https://cdn.caythuocdangian.com/2019/03/rau-xa-lach-carol.jpg",
-    price: 20000,
-    category: "Rau",
-    code: "vgt001",
-    nguongoc: "Nông trại Keho Lake",
-    baoquan: "Bỏ ngăn mát",
-    hsd: "Sử dụng trong vòng 15 ngày",
-    content:
-      "Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate",
-  },
-  {
-    maCode: 3,
     id: 2,
     name: "Rau má",
     src: "https://gonhub.com/wp-content/uploads/2018/10/uong-nuoc-rau-ma-moi-ngay-co-tot-khong-20180804-08-2018-211248.jpg",
@@ -48,7 +34,8 @@ const data = [
       "Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate",
   },
   {
-    maCode: 4,
+    maCode: 3,
+
     id: 3,
     name: "Rau ngò",
     src: "https://thucphamdongxanh.com/wp-content/uploads/2019/09/luu-y-khi-dung-ngo-ri.jpg",
@@ -62,7 +49,8 @@ const data = [
       "Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate",
   },
   {
-    maCode: 5,
+    maCode: 4,
+
     id: 4,
     name: "Diếp cá",
     src: "https://vinmec-prod.s3.amazonaws.com/images/20201118_142647_218113_rau-diep-ca-chua-nh.max-1800x1800.jpg",
@@ -72,6 +60,20 @@ const data = [
     nguongoc: "Nông trại Farm Logo",
     baoquan: "Bỏ ngăn mát",
     hsd: "Sử dụng trong vòng 11 ngày",
+    content:
+      "Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate",
+  },
+  {
+    maCode: 5,
+    id: 5,
+    name: "Rau cần",
+    src: "https://hachi.com.vn/wp-content/uploads/2017/07/rau-can-1024x716.jpg",
+    price: 13000,
+    category: "Rau",
+    code: "vgt005",
+    nguongoc: "Nông trại ViMin",
+    baoquan: "Bỏ ngăn mát",
+    hsd: "Sử dụng trong vòng 16 ngày",
     content:
       "Theo nghiên cứu của khoa học hiện đại, trong 100 gam xà lách có khoảng 2,2 gam carbohydrate, 1,2 gam chất xơ, 90 gam nước, 166 microgram vitamin A, 73 microgram folate",
   },
@@ -103,23 +105,20 @@ function DetailSPQRcode() {
               />
               <View style={{ paddingHorizontal: "3%", paddingTop: "1%" }}>
                 <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Mã sản phẩm:</Text>{" "}
-                  {item.code}
+                  <Text style={styles.font}>Mã sản phẩm:</Text> {item.code}
                 </Title>
                 <Title style={styles.ctntext}>
                   <Text style={styles.font}>Tên sản phẩm:</Text> {item.name}
                 </Title>
                 <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Giá thị trường:</Text>{" "}
-                  {item.price} \1Kg
+                  <Text style={styles.font}>Giá thị trường:</Text> {item.price}{" "}
+                  \1Kg
                 </Title>
                 <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Loại sản phẩm:</Text>{" "}
-                  {item.name}
+                  <Text style={styles.font}>Loại sản phẩm:</Text> {item.name}
                 </Title>
                 <Title style={styles.fontNG}>
-                  <Text style={styles.font}>Nguồn gốc:</Text>{" "}
-                  {item.addressFarm}
+                  <Text style={styles.font}>Nguồn gốc:</Text> {item.addressFarm}
                 </Title>
                 <Title style={styles.fontNG}>
                   <Text style={styles.font}>Chứng nhận:</Text>{" "}
@@ -138,7 +137,7 @@ function DetailSPQRcode() {
 }
 export default DetailSPQRcode;
 const styles = StyleSheet.create({
-  container: { backgroundColor: "green", flex: 1 },
+  container: { flex: 1, backgroundColor: "green" },
   font: { fontWeight: "bold" },
   fontNG: { paddingBottom: "1%" },
   content: { fontSize: 14 },

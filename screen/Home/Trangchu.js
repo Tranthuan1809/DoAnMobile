@@ -51,7 +51,7 @@ export default function App() {
     return () => {};
   }, []);
   const fetchPost = () => {
-    const apiURL = "http://192.168.1.20:44398/api/app/product";
+    const apiURL = "http://10.0.3.81:44398/api/app/product";
     fetch(apiURL)
       .then((response) => response.json())
       .then((responseJson) => {

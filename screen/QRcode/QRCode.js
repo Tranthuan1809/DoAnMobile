@@ -16,7 +16,7 @@ export default function App() {
   const navigation = useNavigation();
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    Alert.alert(`${data}`, "Bạn có muốn đến trang này",[
+    Alert.alert("Chuyển tới sản phẩm chi tiết", "",[
 
       {
         text:"Cancel"
