@@ -17,98 +17,114 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
   const navigation = useNavigation();
-  const [filterData, setFilterData] = useState([]);
-  const [masterData, setMasterData] = useState([]);
-  const [search, setfilterdData] = useState("");
+  // const [filterData, setFilterData] = useState([]);
+  // const [masterData, setMasterData] = useState([]);
+  // const [search, setfilterdData] = useState("");
 
-  useEffect(() => {
-    fetchPost();
-    return () => {};
-  }, []);
-  const fetchPost = () => {
-    const apiURL = "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json";
-    fetch(apiURL)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        searchFilter(responseJson.vegetable);
-        setMasterData(responseJson.vegetable);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const searchFilter = (text) => {
-    if (text) {
-      const newData = masterData.filter((item) => {
-        const itemData = item.name
-          ? item.name.toUpperCase()
-          : "".toUpperCase();
-        const textData = text.toUpperCase();
-        return itemData.indexOf(textData) > -1;
-      });
-      setFilterData(newData);
-      setfilterdData(text);
-    } else {
-      setFilterData(null);
-      setfilterdData(text);
-    }
-  };
-  const ItemView = ({ item }) => {
-    return (
-      <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          backgroundColor: "white",
-          justifyContent: "flex-start",
-          alignItems: "center",
-        }}
-        onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
-      >
-        <Image
-          style={{
-            width: 50,
-            height: 50,
-            resizeMode: "stretch",
-            marginHorizontal: "1.5%",
-          }}
-          source={{ uri: item.src }}
-        />
-        <Text>{item.name}</Text>
-      </TouchableOpacity>
-    );
-  };
-  const ItemSeparatorView = () => {
-    return (
-      <View
-        style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8" }}
-      />
-    );
-  };
+  // useEffect(() => {
+  //   fetchPost();
+  //   return () => {};
+  // }, []);
+  // const fetchPost = () => {
+  //   const apiURL = "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json";
+  //   fetch(apiURL)
+  //     .then((response) => response.json())
+  //     .then((responseJson) => {
+  //       searchFilter(responseJson.vegetable);
+  //       setMasterData(responseJson.vegetable);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+  // const searchFilter = (text) => {
+  //   if (text) {
+  //     const newData = masterData.filter((item) => {
+  //       const itemData = item.name
+  // //         ? item.name.toUpperCase()
+  //         : "".toUpperCase();
+  //       const textData = text.toUpperCase();
+  //       return itemData.indexOf(textData) > -1;
+  //     });
+  //     setFilterData(newData);
+  //     setfilterdData(text);
+  //   } else {
+  //     setFilterData(null);
+  //     setfilterdData(text);
+  //   }
+  // };
+  // const ItemView = ({ item }) => {
+  //   return (
+  //     <TouchableOpacity
+  //       style={{
+  //         flexDirection: "row",
+  //         backgroundColor: "white",
+  //         justifyContent: "flex-start",
+  //         alignItems: "center",
+  //       }}
+  //       onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
+  //     >
+  //       <Image
+  //         style={{
+  //           width: 50,
+  //           height: 50,
+  //           resizeMode: "stretch",
+  //           marginHorizontal: "1.5%",
+  //         }}
+  //         source={{ uri: item.src }}
+  //       />
+  //       <Text>{item.name}</Text>
+  //     </TouchableOpacity>
+  //   );
+  // };
+  // const ItemSeparatorView = () => {
+  //   return (
+  //     <View
+  //       style={{ height: 0.5, width: "100%", backgroundColor: "#c8c8c8" }}
+  //     />
+  //   );
+  // };
   return (
     <SafeAreaView style={{flex:1}}>
       <View style={{
-          position: "absolute",
-          top: "3.5%",
-          zIndex: 2,
-          flex: 1,
-          width: "100%",
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"rgb(255,58,82)",
+        padding:10,
+          // flex: 1,
+          // flexDirection:"row"
         }}>
-        <SearchBar
+          <Text style={{
+            color:"#fff",
+            fontSize:18,
+            fontWeight:"bold"
+          }}>
+            Danh Sách Sản Phẩm
+          </Text>
+          {/* <Image
+            source={require('../../assets/products.png')}
+            resizeMode="cover"
+            style={{
+              width:50,
+              height:50
+            }}
+          /> */}
+        {/* <SearchBar
           containerStyle={style.textInputStyle}
           inputContainerStyle={style.input}
           placeholder="Type Here..."
           onChangeText={(text) => searchFilter(text)}
           value={search}
           underlineColorAndroid="transparent"
-        />
-        <FlatList
+        /> */}
+        {/* <FlatList
           data={filterData}
           keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ItemView}
-        />
+        /> */}
       </View>
-      <ScrollView style={{ zIndex: 0 ,marginTop:'15%'}}>
+      <ScrollView style={{ zIndex: 0 ,marginTop:'2%'}}>
           <View style={style.flexAll}>
             <Text
              style={style.product}
