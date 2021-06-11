@@ -17,27 +17,22 @@ function Getall() {
   const [data, setData] = useState([]);
   const [categoryID, setCategoryID] = useState([]);
 
-
   const [filterData, setFilterData] = useState([]);
   const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
   useEffect(() => {
-    fetchPost();
-    return () => {};
-  }, []);
-  const fetchPost = () => {
-    const apiURL = "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json";
-    fetch(apiURL)
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
       .then((response) => response.json())
-      .then((responseJson) => {
-        searchFilter(responseJson.vegetable);
-        setMasterData(responseJson.vegetable);
+      .then((json) => {
+        setMasterData(json.items);
+        searchFilter(json.items);
       })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, [categoryID]);
   const searchFilter = (text) => {
     if (text) {
       const newData = masterData.filter((item) => {
@@ -70,7 +65,9 @@ function Getall() {
             resizeMode: "stretch",
             marginHorizontal: "1.5%",
           }}
-          source={{ uri: item.image }}
+          source={{
+            uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+          }}
         />
         <Text>{item.name}</Text>
       </TouchableOpacity>
@@ -83,26 +80,17 @@ function Getall() {
       />
     );
   };
-
-
-
-
-
-
-
-
-
-
-
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/category")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
       .then((response) => response.json())
-      .then((json) => setCategoryID(json.items[0].id))
+      .then((json) => setCategoryID(json.items[2].id))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
   useEffect(() => {
-    fetch(`http://10.0.3.81:44398/api/app/product/by-category/${categoryID}`)
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
@@ -110,8 +98,10 @@ function Getall() {
   }, [categoryID]);
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ backgroundColor: "white", paddingVertical: 5 ,flex:1}}>
-       <View
+    <SafeAreaView
+      style={{ backgroundColor: "white", paddingVertical: 5, flex: 1 }}
+    >
+      <View
         style={{
           position: "absolute",
           zIndex: 2,
@@ -138,6 +128,7 @@ function Getall() {
         <ActivityIndicator />
       ) : (
         <FlatList
+          style={{ marginTop: "15%" }}
           numColumns={2}
           data={data}
           keyExtractor={({ id }, index) => id}
@@ -147,13 +138,17 @@ function Getall() {
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
             >
               <Image
-                source={{ uri: item.image }}
+                source={{
+                  uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+                }}
                 style={styles.image}
               ></Image>
               <View style={styles.title}>
-              <Text style={styles.text}>Mã : {item.code}</Text>
+                <Text style={styles.text}>Mã : {item.code}</Text>
                 <Text style={styles.text}>Tên: {item.name}</Text>
-                <Text style={styles.text}>Giá : {item.price} \1Kg</Text>
+                <Text style={styles.text}>
+                  Giá : {item.price.toLocaleString("en-US")} \1Kg
+                </Text>
               </View>
             </TouchableOpacity>
           )}

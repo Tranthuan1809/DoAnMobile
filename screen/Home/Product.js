@@ -16,7 +16,7 @@ export default Product = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/product")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/product")
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
@@ -29,7 +29,7 @@ export default Product = () => {
         <ActivityIndicator />
       ) : (
         <FlatList
-          numColumns={data.length}
+          numColumns={99999}
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
@@ -48,13 +48,13 @@ export default Product = () => {
                   marginVertical: 2,
                   borderBottomLeftRadius: 10,
                   borderBottomRightRadius: 10,
-                }}
-                source={{uri: item.product.image}}
+                }}  
+                source={{uri:`https://agriudaethblc.azurewebsites.net/UploadImages/${item.product.image}`}}
               ></Image>
               <View style={style.title}>
-                <Text style={style.text}>Mã : {item.product.qrCode}</Text>
+                <Text style={style.text}>Mã : {item.product.code}</Text>
                 <Text style={style.text}>Tên: {item.product.name}</Text>
-                <Text style={style.text}>Giá : {item.product.price} \1Kg</Text>
+                <Text style={style.text}>Giá : {item.product.price.toLocaleString('en-us')} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}

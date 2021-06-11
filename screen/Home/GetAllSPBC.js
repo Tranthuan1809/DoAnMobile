@@ -20,7 +20,7 @@ function Getall() {
       "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
     )
       .then((response) => response.json())
-      .then((json) => setData(json.vegetable))
+      .then((json) => setData(json.sells))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);

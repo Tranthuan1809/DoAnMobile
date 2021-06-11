@@ -21,19 +21,31 @@ function Getall() {
   const [search, setfilterdData] = useState("");
 
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/category")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
       .then((response) => response.json())
-      .then((json) => setCategoryID(json.items[1]))
+      .then((json) => setCategoryID(json.items[1].id))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
-    fetch(`http://10.0.3.81:44398/api/app/product/by-category/${categoryID.id}`)
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
       .then((response) => response.json())
       .then((json) => setData(json.items))
-      .then((json) => setFilterData(json.items))
-      .then((json) => setMasterData(json.items))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, [categoryID]);
+  useEffect(() => {
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        searchFilter(json.items);
+        setMasterData(json.items);
+      })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, [categoryID]);
@@ -71,7 +83,9 @@ function Getall() {
             resizeMode: "stretch",
             marginHorizontal: "1.5%",
           }}
-          source={{ uri: item.image }}
+          source={{
+            uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+          }}
         />
         <Text>{item.name}</Text>
       </TouchableOpacity>
@@ -123,11 +137,16 @@ function Getall() {
               style={styles.productStyle}
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
             >
-              <Image source={{ uri: item.image }} style={styles.image}></Image>
+              <Image
+                source={{
+                  uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+                }}
+                style={styles.image}
+              ></Image>
               <View style={styles.title}>
                 <Text style={styles.text}>Mã : {item.code}</Text>
                 <Text style={styles.text}>Tên: {item.name}</Text>
-                <Text style={styles.text}>Giá : {item.price} \1Kg</Text>
+                <Text style={styles.text}>Giá : {item.price.toLocaleString('en-US')} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}

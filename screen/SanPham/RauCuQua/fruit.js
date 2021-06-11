@@ -8,7 +8,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 
 export default function Product() {
@@ -17,15 +17,16 @@ export default function Product() {
   const [categoryID, setCategoryID] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/category")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
       .then((response) => response.json())
-      .then((json) => setCategoryID(json.items[1]))
+      .then((json) => setCategoryID(json.items[1].id))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
-
   useEffect(() => {
-    fetch(`http://10.0.3.81:44398/api/app/product/by-category/${categoryID.id}`)
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
@@ -41,9 +42,9 @@ export default function Product() {
         <ActivityIndicator />
       ) : (
         <FlatList
-          numColumns={5}
+          numColumns={999999}
           data={data}
-          keyExtractor={({ id }, index) => id}
+          keyExtractor={({ productId }, index) => productId}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
@@ -58,12 +59,16 @@ export default function Product() {
                   marginVertical: 2,
                   resizeMode: "stretch",
                 }}
-                source={{ uri: item.image }}
+                source={{
+                  uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+                }}
               ></Image>
               <View style={style.title}>
                 <Text style={style.text}>Mã: {item.code}</Text>
                 <Text style={style.text}>Tên: {item.name}</Text>
-                <Text style={style.text}>Giá: {item.price} VNĐ</Text>
+                <Text style={style.text}>
+                  Giá: {item.price.toLocaleString("en-US")} VNĐ
+                </Text>
               </View>
             </TouchableOpacity>
           )}

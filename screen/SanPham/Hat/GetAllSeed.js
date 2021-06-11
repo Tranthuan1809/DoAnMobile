@@ -12,30 +12,42 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-
-
-
-
 function Getall() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-
 
   const [filterData, setFilterData] = useState([]);
   const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json")
+    fetch(
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
+    )
       .then((response) => response.json())
       .then((json) => setData(json.seed))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+  useEffect(() => {
+    fetchPost();
+    return () => {};
+  }, []);
+  const fetchPost = () => {
+    const apiURL =
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json";
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        searchFilter(responseJson.seed);
+        setMasterData(responseJson.seed);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navigation = useNavigation();
-
-
-  const searchFilter = (text) => {
+  const searchFilter = (text) => {  
     if (text) {
       const newData = masterData.filter((item) => {
         const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
@@ -67,7 +79,7 @@ function Getall() {
             resizeMode: "stretch",
             marginHorizontal: "1.5%",
           }}
-          source={{ uri: item.image }}
+          source={{ uri: item.src }}
         />
         <Text>{item.name}</Text>
       </TouchableOpacity>
@@ -81,11 +93,9 @@ function Getall() {
     );
   };
 
-
-
   return (
     <SafeAreaView style={{ backgroundColor: "white", paddingVertical: 5 }}>
-       <View
+      <View
         style={{
           position: "absolute",
           zIndex: 2,
@@ -112,6 +122,7 @@ function Getall() {
         <ActivityIndicator />
       ) : (
         <FlatList
+          style={{ zIndex: 0, marginTop: "15%" }}
           numColumns={2}
           data={data}
           keyExtractor={({ id }, index) => id}
@@ -120,14 +131,11 @@ function Getall() {
               style={styles.productStyle}
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
             >
-              <Image
-                source={{ uri: item.src }}
-                style={styles.image}
-              ></Image>
+              <Image source={{ uri: item.src }} style={styles.image}></Image>
               <View style={styles.title}>
-              <Text style={styles.text}>Mã : {item.code}</Text>
+                <Text style={styles.text}>Mã : {item.code}</Text>
                 <Text style={styles.text}>Tên: {item.name}</Text>
-                <Text style={styles.text}>Giá : {item.price} \1Kg</Text>
+                <Text style={styles.text}>Giá : {item.price.toLocaleString('en-US')} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}

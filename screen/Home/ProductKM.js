@@ -16,9 +16,11 @@ export default Product = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/product")
+    fetch(
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
+    )
       .then((response) => response.json())
-      .then((json) => setData(json.items))
+      .then((json) => setData(json.spbc))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
@@ -29,12 +31,12 @@ export default Product = () => {
         <ActivityIndicator />
       ) : (
         <FlatList
-          numColumns={data.length}
+          numColumns={99999}
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
+              onPress={() => navigation.navigate("Chi tiết SPBC", { item })}
               activeOpacity={0.5}
               style={style.productStyle}
             >
@@ -49,12 +51,12 @@ export default Product = () => {
                   borderBottomLeftRadius: 10,
                   borderBottomRightRadius: 10,
                 }}
-                source={{uri: item.product.image}}
+                source={{ uri: item.src }}
               ></Image>
               <View style={style.title}>
-                <Text style={style.text}>Mã : {item.product.qrCode}</Text>
-                <Text style={style.text}>Tên: {item.product.name}</Text>
-                <Text style={style.text}>Giá : {item.product.price} \1Kg</Text>
+                <Text style={style.text}>Mã : {item.code}</Text>
+                <Text style={style.text}>Tên: {item.name}</Text>
+                <Text style={style.text}>Giá : {item.price.toLocaleString('en-us')} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}
@@ -81,6 +83,6 @@ const style = StyleSheet.create({
     elevation: 5,
     marginBottom: 10,
   },
-  title: { paddingHorizontal: "2%",paddingBottom:'2%' },
+  title: { paddingHorizontal: "2%" },
   text: { color: "white", fontWeight: "bold" },
 });

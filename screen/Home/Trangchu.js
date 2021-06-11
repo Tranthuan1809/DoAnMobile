@@ -51,7 +51,7 @@ export default function App() {
     return () => {};
   }, []);
   const fetchPost = () => {
-    const apiURL = "http://10.0.3.81:44398/api/app/product";
+    const apiURL = "https://agriudaethblc.azurewebsites.net/api/app/product?MaxResultCount=1000";
     fetch(apiURL)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -96,7 +96,7 @@ export default function App() {
             resizeMode: "stretch",
             marginHorizontal: "1.5%",
           }}
-          source={{ uri: item.product.image }}
+          source={{uri:`https://agriudaethblc.azurewebsites.net/UploadImages/${item.product.image}`}}
         />
         <Text>{item.product.name}</Text>
       </TouchableOpacity>

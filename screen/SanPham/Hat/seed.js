@@ -13,14 +13,25 @@ import {
 export default function Product() {
   const [data, setData] = useState([]);
 
+  const [categoryID, setCategoryID] = useState([]);
+
+  useEffect(() => {
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
+      .then((response) => response.json())
+      .then((json) => setCategoryID(json.items[0].id))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
     )
       .then((response) => response.json())
-      .then((json) => setData(json.seed))
-      .catch((error) => console.error(error));
-  }, []);
+      .then((json) => setData(json.items))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, [categoryID]);
   const navigation = useNavigation();
   return (
     <ScrollView
@@ -28,8 +39,7 @@ export default function Product() {
       horizontal={true}
     >
       <FlatList
-        key={data.length}
-        numColumns={data.length}
+        numColumns={99999}
         data={data}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -45,12 +55,14 @@ export default function Product() {
                 marginVertical: 2,
                 resizeMode: "stretch",
               }}
-              source={{ uri: item.src }}
+              source={{
+                uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+              }}
             ></Image>
             <View style={style.title}>
               <Text style={style.text}>Mã: {item.code}</Text>
               <Text style={style.text}>Tên: {item.name}</Text>
-              <Text style={style.text}>Giá: {item.price} VNĐ</Text>
+              <Text style={style.text}>Giá: {item.price.toLocaleString('en-US')} VNĐ</Text>
             </View>
           </TouchableOpacity>
         )}

@@ -85,59 +85,62 @@ function DetailSPQRcode() {
   const route = useRoute();
   const a = route.params.name;
   return (
-    <FlatList
-      data={data}
-      renderItem={({ item }) => (
-        <View>
-          {item.maCode == a ? (
-            <View style={styles.container}>
-              <Image
-                style={{
-                  resizeMode: "stretch",
-                  height: 200,
-                  width: "auto",
-                  borderBottomLeftRadius: 15,
-                  borderBottomRightRadius: 15,
-                  borderColor: "green",
-                  borderRightWidth: 1,
-                }}
-                source={{ uri: item.src }}
-              />
-              <View style={{ paddingHorizontal: "3%", paddingTop: "1%" }}>
-                <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Mã sản phẩm:</Text> {item.code}
-                </Title>
-                <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Tên sản phẩm:</Text> {item.name}
-                </Title>
-                <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Giá thị trường:</Text> {item.price}{" "}
-                  \1Kg
-                </Title>
-                <Title style={styles.ctntext}>
-                  <Text style={styles.font}>Loại sản phẩm:</Text> {item.name}
-                </Title>
-                <Title style={styles.fontNG}>
-                  <Text style={styles.font}>Nguồn gốc:</Text> {item.addressFarm}
-                </Title>
-                <Title style={styles.fontNG}>
-                  <Text style={styles.font}>Chứng nhận:</Text>{" "}
-                  {item.certificate}
-                </Title>
-                <Title style={styles.content}>
-                  Thông tin khác: {item.content}
-                </Title>
+    <View style={styles.container}>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <View>
+            {item.maCode == a ? (
+              <View>
+                <Image
+                  style={{
+                    resizeMode: "stretch",
+                    height: 200,
+                    width: "auto",
+                    borderBottomLeftRadius: 15,
+                    borderBottomRightRadius: 15,
+                    borderColor: "green",
+                    borderRightWidth: 1,
+                  }}
+                  source={{ uri: item.src }}
+                />
+                <View style={{ paddingHorizontal: "3%", paddingTop: "1%" }}>
+                  <Title style={styles.ctntext}>
+                    <Text style={styles.font}>Mã sản phẩm:</Text> {item.code}
+                  </Title>
+                  <Title style={styles.ctntext}>
+                    <Text style={styles.font}>Tên sản phẩm:</Text> {item.name}
+                  </Title>
+                  <Title style={styles.ctntext}>
+                    <Text style={styles.font}>Giá thị trường:</Text>{" "}
+                    {item.price} \1Kg
+                  </Title>
+                  <Title style={styles.ctntext}>
+                    <Text style={styles.font}>Loại sản phẩm:</Text> {item.name}
+                  </Title>
+                  <Title style={styles.fontNG}>
+                    <Text style={styles.font}>Nguồn gốc:</Text>{" "}
+                    {item.addressFarm}
+                  </Title>
+                  <Title style={styles.fontNG}>
+                    <Text style={styles.font}>Chứng nhận:</Text>{" "}
+                    {item.certificate}
+                  </Title>
+                  <Title style={styles.content}>
+                    Thông tin khác: {item.content}
+                  </Title>
+                </View>
               </View>
-            </View>
-          ) : null}
-        </View>
-      )}
-    />
+            ) : null}
+          </View>
+        )}
+      />
+    </View>
   );
 }
 export default DetailSPQRcode;
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "green" },
+  container: { flex: 1, backgroundColor: "green", height: "100%" },
   font: { fontWeight: "bold" },
   fontNG: { paddingBottom: "1%" },
   content: { fontSize: 14 },

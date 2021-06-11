@@ -89,10 +89,8 @@ export default function App() {
       <View style={{
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"rgb(255,58,82)",
+        backgroundColor:"green",
         padding:10,
-          // flex: 1,
-          // flexDirection:"row"
         }}>
           <Text style={{
             color:"#fff",
@@ -116,8 +114,8 @@ export default function App() {
           onChangeText={(text) => searchFilter(text)}
           value={search}
           underlineColorAndroid="transparent"
-        /> */}
-        {/* <FlatList
+        />
+        <FlatList
           data={filterData}
           keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={ItemSeparatorView}

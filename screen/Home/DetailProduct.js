@@ -19,11 +19,10 @@ function DetailProduct() {
           height: 200,
           width: 'auto',
           borderBottomLeftRadius: 15,
-          borderBottomRightRadius: 15,
           borderColor: 'green',
           borderRightWidth: 1,
         }}
-        source={{uri: product.image}}
+        source={{uri:`https://agriudaethblc.azurewebsites.net/UploadImages/${product.image}`}}
       />
       <View style={{paddingHorizontal: '3%', paddingTop: '1%'}}>
         <Title style={styles.ctntext}>

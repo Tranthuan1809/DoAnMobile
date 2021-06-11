@@ -56,7 +56,7 @@ export default Product = () => {
               <View style={style.title}>
                 <Text style={style.text}>Mã : {item.code}</Text>
                 <Text style={style.text}>Tên: {item.name}</Text>
-                <Text style={style.text}>Giá : {item.price} \1Kg</Text>
+                <Text style={style.text}>Giá : {item.price.toLocaleString('en-us')} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}

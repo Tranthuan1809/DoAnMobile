@@ -16,7 +16,7 @@ function Getall() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/product")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/product?MaxResultCount=1000")
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
@@ -38,13 +38,15 @@ function Getall() {
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
             >
               <Image
-                source={{ uri: item.product.image }}
+                source={{
+                  uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.product.image}`,
+                }}
                 style={styles.image}
               ></Image>
               <View style={styles.title}>
-              <Text style={styles.text}>Mã : {item.product.qrCode}</Text>
+                <Text style={styles.text}>Mã : {item.product.code}</Text>
                 <Text style={styles.text}>Tên: {item.product.name}</Text>
-                <Text style={styles.text}>Giá : {item.product.price} \1Kg</Text>
+                <Text style={styles.text}>Giá : {item.product.price.toLocaleString('en-us')} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
   },
   productStyle: {
     flex: 1,
-    maxWidth: '49%',
+    maxWidth: "49%",
     maxHeight: 170,
     marginHorizontal: 3,
     backgroundColor: "#338f38",
@@ -80,6 +82,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     marginBottom: 10,
   },
-  title: { paddingHorizontal: "2%",paddingBottom:'2%' },
+  title: { paddingHorizontal: "2%", paddingBottom: "2%" },
   text: { color: "white", fontWeight: "bold" },
 });

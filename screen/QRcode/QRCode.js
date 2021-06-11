@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button ,Alert, Linking} from 'react-native';
-import { BarCodeScanner } from 'expo-barcode-scanner';
-import {useNavigation} from '@react-navigation/native'
+import React, { useState, useEffect } from "react";
+import { Text, View, StyleSheet, Button, Alert, Linking } from "react-native";
+import { BarCodeScanner } from "expo-barcode-scanner";
+import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -10,22 +10,13 @@ export default function App() {
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
+      setHasPermission(status === "granted");
     })();
   }, []);
   const navigation = useNavigation();
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    Alert.alert("Chuyển tới sản phẩm chi tiết", "",[
-
-      {
-        text:"Cancel"
-      },
-      {
-        text:"OK",
-        onPress: () =>navigation.navigate("Chi tiết khi quét QR", { name : `${data}`})
-      }
-    ]);
+    navigation.navigate("Chi tiết khi quét QR", { name: `${data}` });
   };
 
   if (hasPermission === null) {
@@ -41,7 +32,12 @@ export default function App() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <Button  title={'Chọn để bắt đầu quét'} onPress={() => setScanned(false)} />}
+      {scanned && (
+        <Button
+          title={"Chọn để bắt đầu quét"}
+          onPress={() => setScanned(false)}
+        />
+      )}
     </View>
   );
 }
@@ -49,7 +45,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
   },
 });

@@ -17,14 +17,16 @@ export default function Product() {
   const [categoryID, setCategoryID] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.0.3.81:44398/api/app/category")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
       .then((response) => response.json())
-      .then((json) => setCategoryID(json.items[0].id))
+      .then((json) => setCategoryID(json.items[2].id))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
   useEffect(() => {
-    fetch(`http://10.0.3.81:44398/api/app/product/by-category/${categoryID}`)
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
@@ -41,6 +43,7 @@ export default function Product() {
         <ActivityIndicator />
       ) : (
         <FlatList
+          numColumns={99999}
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
@@ -57,12 +60,14 @@ export default function Product() {
                   marginHorizontal: 2,
                   marginVertical: 2,
                 }}
-                source={{ uri: item.image }}
+                source={{
+                  uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`
+                }}
               ></Image>
               <View style={style.title}>
                 <Text style={style.text}>Mã: {item.code}</Text>
                 <Text style={style.text}>Tên: {item.name}</Text>
-                <Text style={style.text}>Giá: {item.price} VNĐ</Text>
+                <Text style={style.text}>Giá: {item.price.toLocaleString('en-US')} VNĐ</Text>
               </View>
             </TouchableOpacity>
           )}
@@ -83,5 +88,5 @@ const style = StyleSheet.create({
     backgroundColor: "white",
   },
   title: { paddingHorizontal: "2%", paddingBottom: "2%" },
-  text: { fontWeight: "bold", color: "#118F3E" },
+  text: { fontWeight: "bold", color: "#118F3E"},
 });
