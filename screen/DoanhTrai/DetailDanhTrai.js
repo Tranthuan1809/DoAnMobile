@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   textDL: { fontSize: 16, fontWeight: "bold" },
   productStyle: {
     width: 180,
-    height: 160,
+    maxHeight: 160,
     marginHorizontal: 6,
     borderWidth: 1,
     borderStyle: "solid",
@@ -153,6 +153,6 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     backgroundColor: "white",
   },
-  title: { paddingHorizontal: "2%", paddingBottom: "2%"  },
-  text: { fontWeight: "bold",color:'#118F3E' },
+  title: { paddingHorizontal: "2%", paddingVertical: 2 },
+  text: { fontWeight: "bold", color: "#118F3E" },
 });
