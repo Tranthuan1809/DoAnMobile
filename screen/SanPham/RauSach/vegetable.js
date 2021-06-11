@@ -45,7 +45,7 @@ export default function Product() {
         <FlatList
           numColumns={99999}
           data={data}
-          keyExtractor={({ id }, index) => id}
+          keyExtractor={({ productId }, index) => productId}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}

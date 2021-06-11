@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import DoanhTrai from './Doanhtrai'
 import DetailDanhTrai from './DetailDanhTrai'
-import DetailProduct from '../SanPham/DetailProduct'
+import DetailProduct from '../Home/DetailSPBC_SPBC'
 
 function DoanhTraiScreen() {
   return <DoanhTrai />;

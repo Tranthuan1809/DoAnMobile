@@ -15,11 +15,12 @@ function DetailProduct() {
     <View style={styles.container}>
       <Image
         style={{
-          resizeMode: 'stretch',
+          resizeMode: "stretch",
           height: 200,
-          width: 'auto',
+          width: "auto",
           borderBottomLeftRadius: 15,
-          borderColor: 'green',
+          borderBottomRightRadius: 15,
+          borderColor: "green",
           borderRightWidth: 1,
         }}
         source={{uri:`https://agriudaethblc.azurewebsites.net/UploadImages/${product.image}`}}

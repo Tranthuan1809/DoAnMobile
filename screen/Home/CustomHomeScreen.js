@@ -5,7 +5,8 @@ import DetailProduct from './DetailProduct';
 import GetAll from './GetallSPnew';
 import GetallSPBC from './GetAllSPBC';
 import QRcode from '../QRcode/QRCode'
-import DetailSPBC from '../SanPham/DetailProduct'
+import GetAllSPBC from './GetAllSPKM'
+import DetailSPBC_SPKM from './DetailSPBC_SPBC'
 
 function TrangchuScreen() {
   return <TrangChu />;
@@ -22,8 +23,11 @@ function GetallSPBCScreen() {
 function QRcodeScreen() {
   return <QRcode />;
 }
-function DetailSPBCScreen() {
-  return <DetailSPBC />;
+function GetAllSPBCScreen() {
+  return <GetAllSPBC />;
+}
+function DetailSPBC_SPKMcreen() {
+  return <DetailSPBC_SPKM />;
 }
 
 const Stack = createStackNavigator();
@@ -51,9 +55,13 @@ function CustomHomeScreen() {
         component={QRcodeScreen}
         name="QRcode"></Stack.Screen>
          <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
-        component={DetailSPBCScreen}
-        name="Chi tiết SPBC"></Stack.Screen>
+        options={{headerTintColor: 'green' ,headerBackTitleVisible: false,title:"Sản phẩm bán chạy"}}
+        component={GetAllSPBCScreen}
+        name="Show all spbc"></Stack.Screen>
+         <Stack.Screen
+        options={{headerTintColor: 'green' ,headerBackTitleVisible: false,title:"Chi tiết sản phẩm BC"}}
+        component={DetailSPBC_SPKMcreen}
+        name="Chi tiết sản phẩm BC"></Stack.Screen>
     </Stack.Navigator>
   );
 }

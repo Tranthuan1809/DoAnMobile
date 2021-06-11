@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
+import { SearchBar } from "react-native-elements";
 import {
   View,
   Text,
@@ -10,47 +11,28 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { SearchBar } from "react-native-elements";
 
 function Getall() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [categoryID, setCategoryID] = useState([]);
+
   const [filterData, setFilterData] = useState([]);
   const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
-  useEffect(() => {
-    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
-      .then((response) => response.json())
-      .then((json) => setCategoryID(json.items[1].id))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
-    fetch(
-      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
-    )
-      .then((response) => response.json())
-      .then((json) => setData(json.items))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, [categoryID]);
   useEffect(() => {
     fetch(
       `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
     )
       .then((response) => response.json())
       .then((json) => {
-        searchFilter(json.items);
         setMasterData(json.items);
+        searchFilter(json.items);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, [categoryID]);
-  const navigation = useNavigation();
-
   const searchFilter = (text) => {
     if (text) {
       const newData = masterData.filter((item) => {
@@ -98,6 +80,23 @@ function Getall() {
       />
     );
   };
+  useEffect(() => {
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
+      .then((response) => response.json())
+      .then((json) => setCategoryID(json.items[1].id))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+  useEffect(() => {
+    fetch(
+      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+    )
+      .then((response) => response.json())
+      .then((json) => setData(json.items))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, [categoryID]);
+  const navigation = useNavigation();
   return (
     <SafeAreaView
       style={{ backgroundColor: "white", paddingVertical: 5, flex: 1 }}
@@ -129,9 +128,10 @@ function Getall() {
         <ActivityIndicator />
       ) : (
         <FlatList
-          style={{ zIndex: 0, marginTop: "15%" }}
+          style={{ marginTop: "15%" }}
           numColumns={2}
           data={data}
+          keyExtractor={({ productId }, index) => productId}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.productStyle}
@@ -146,7 +146,9 @@ function Getall() {
               <View style={styles.title}>
                 <Text style={styles.text}>Mã : {item.code}</Text>
                 <Text style={styles.text}>Tên: {item.name}</Text>
-                <Text style={styles.text}>Giá : {item.price.toLocaleString('en-US')} \1Kg</Text>
+                <Text style={styles.text}>
+                  Giá : {item.price.toLocaleString("en-US")} \1Kg
+                </Text>
               </View>
             </TouchableOpacity>
           )}

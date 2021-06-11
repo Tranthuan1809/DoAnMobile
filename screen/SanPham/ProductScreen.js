@@ -169,8 +169,7 @@ const style = StyleSheet.create({
     borderBottomColor: "#338f38",
   },
   flexAll: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginRight:10
   },
   input: {
     backgroundColor: "white",
@@ -205,7 +204,6 @@ const style = StyleSheet.create({
   },
   titleAll: {
     marginTop: 4,
-    marginRight: 20,
   },
   titleSeed: {
     fontSize: 22,

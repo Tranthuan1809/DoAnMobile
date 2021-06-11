@@ -36,7 +36,7 @@ export default Product = () => {
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate("Chi tiết SPBC", { item })}
+              onPress={() => navigation.navigate("Chi tiết sản phẩm BC", { item })}
               activeOpacity={0.5}
               style={style.productStyle}
             >

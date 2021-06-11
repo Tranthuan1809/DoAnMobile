@@ -17,6 +17,7 @@ import Product from "./Product";
 import ProductSPBC from "./ProductSPBC";
 import { useNavigation } from "@react-navigation/native";
 import ProductKM from "./ProductKM";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Data = [
   {
@@ -51,7 +52,8 @@ export default function App() {
     return () => {};
   }, []);
   const fetchPost = () => {
-    const apiURL = "https://agriudaethblc.azurewebsites.net/api/app/product?MaxResultCount=1000";
+    const apiURL =
+      "https://agriudaethblc.azurewebsites.net/api/app/product?MaxResultCount=100";
     fetch(apiURL)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -96,7 +98,9 @@ export default function App() {
             resizeMode: "stretch",
             marginHorizontal: "1.5%",
           }}
-          source={{uri:`https://agriudaethblc.azurewebsites.net/UploadImages/${item.product.image}`}}
+          source={{
+            uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.product.image}`,
+          }}
         />
         <Text>{item.product.name}</Text>
       </TouchableOpacity>
@@ -120,14 +124,19 @@ export default function App() {
           width: "100%",
         }}
       >
-        <SearchBar
-          containerStyle={style.textInputStyle}
-          inputContainerStyle={style.input}
-          placeholder="Type Here..."
-          onChangeText={(text) => searchFilter(text)}
-          value={search}
-          underlineColorAndroid="transparent"
-        />
+        <View style={{flex:1, flexDirection: "row" }}>
+          <SearchBar
+            containerStyle={style.textInputStyle}
+            inputContainerStyle={style.input}
+            placeholder="Type Here..."
+            onChangeText={(text) => searchFilter(text)}
+            value={search}
+            underlineColorAndroid="transparent"
+          />
+          <TouchableOpacity onPress={()=>navigation.navigate('Mã QR')} style={{justifyContent:'center',width:'15%',alignItems:'center',backgroundColor:'#338f38'}}>
+            <Ionicons name="qr-code" size={35} color='white' />
+          </TouchableOpacity>
+        </View>
         <FlatList
           data={filterData}
           keyExtractor={(item, index) => index.toString()}
@@ -135,7 +144,7 @@ export default function App() {
           renderItem={ItemView}
         />
       </View>
-      <ScrollView style={{ zIndex: 0 ,marginTop:'15%'}}>
+      <ScrollView style={{ zIndex: 0, marginTop: "15%" }}>
         <View style={style.slide}>
           <SwiperFlatList
             autoplay
@@ -154,10 +163,10 @@ export default function App() {
             )}
           />
         </View>
-        <View style={{ flexDirection: "row", marginTop: 5 }}>
+        <View style={{ flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginHorizontal:10}}>
           <Text style={style.productNew}>Sản phẩm mới</Text>
           <TouchableOpacity
-            style={{ marginTop: 4 }}
+            style={{ marginTop: 5 }}
             activeOpacity={0.5}
             onPress={() => navigation.navigate("Sản phẩm mới")}
           >
@@ -167,7 +176,7 @@ export default function App() {
         <View>
           <Product />
         </View>
-        <View style={{ flexDirection: "row", marginTop: 10 }}>
+        <View style={{ flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginHorizontal:10}}>
           <Text style={style.product}>Sản phẩm bán chạy</Text>
           <TouchableOpacity
             style={{ marginTop: 4 }}
@@ -180,12 +189,12 @@ export default function App() {
         <View>
           <ProductSPBC />
         </View>
-        <View style={{ flexDirection: "row", marginTop: 10 }}>
+        <View style={{  flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginHorizontal:10}}>
           <Text style={style.product1}>Sản phẩm khuyến mãi</Text>
           <TouchableOpacity
             style={{ marginTop: 4 }}
             activeOpacity={0.5}
-            onPress={() => navigation.navigate("Sản phẩm mới")}
+            onPress={() => navigation.navigate("Show all spbc")}
           >
             <Text style={style.getall}>Xem tất cả</Text>
           </TouchableOpacity>
@@ -221,22 +230,16 @@ const style = StyleSheet.create({
   },
   productNew: {
     fontSize: 20,
-    marginLeft: 7,
-    marginRight: "40%",
     fontWeight: "bold",
     color: "#338f38",
   },
   product: {
     fontSize: 20,
-    marginRight: "27%",
-    marginLeft: 7,
     fontWeight: "bold",
     color: "#338f38",
   },
   product1: {
     fontSize: 20,
-    marginRight: "20%",
-    marginLeft: 7,
     fontWeight: "bold",
     color: "#338f38",
   },
@@ -249,5 +252,6 @@ const style = StyleSheet.create({
     backgroundColor: "#338f38",
     alignItems: "center",
     justifyContent: "space-between",
+    width: "85%",
   },
 });

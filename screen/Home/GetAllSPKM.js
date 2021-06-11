@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
-import { SearchBar } from "react-native-elements";
 import {
   View,
   Text,
@@ -11,28 +10,43 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { SearchBar } from "react-native-elements";
 
 function Getall() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [categoryID, setCategoryID] = useState([]);
-
   const [filterData, setFilterData] = useState([]);
   const [masterData, setMasterData] = useState([]);
   const [search, setfilterdData] = useState("");
 
   useEffect(() => {
     fetch(
-      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
     )
       .then((response) => response.json())
-      .then((json) => {
-        setMasterData(json.items);
-        searchFilter(json.items);
-      })
+      .then((json) => setData(json.spbc))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  }, [categoryID]);
+  }, []);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    fetchPost();
+    return () => {};
+  }, []);
+  const fetchPost = () => {
+    const apiURL =
+      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json";
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        searchFilter(responseJson.spbc);
+        setMasterData(responseJson.spbc);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const searchFilter = (text) => {
     if (text) {
       const newData = masterData.filter((item) => {
@@ -56,7 +70,7 @@ function Getall() {
           justifyContent: "flex-start",
           alignItems: "center",
         }}
-        onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
+        onPress={() => navigation.navigate("Chi tiết sản phẩm BC", { item })}
       >
         <Image
           style={{
@@ -66,7 +80,7 @@ function Getall() {
             marginHorizontal: "1.5%",
           }}
           source={{
-            uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
+            uri: item.src,
           }}
         />
         <Text>{item.name}</Text>
@@ -80,27 +94,9 @@ function Getall() {
       />
     );
   };
-  useEffect(() => {
-    fetch("https://agriudaethblc.azurewebsites.net/api/app/category")
-      .then((response) => response.json())
-      .then((json) => setCategoryID(json.items[2].id))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
-  useEffect(() => {
-    fetch(
-      `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
-    )
-      .then((response) => response.json())
-      .then((json) => setData(json.items))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, [categoryID]);
-  const navigation = useNavigation();
+
   return (
-    <SafeAreaView
-      style={{ backgroundColor: "white", paddingVertical: 5, flex: 1 }}
-    >
+    <SafeAreaView style={{ backgroundColor: "white", paddingVertical: 5 }}>
       <View
         style={{
           position: "absolute",
@@ -124,6 +120,7 @@ function Getall() {
           renderItem={ItemView}
         />
       </View>
+
       {isLoading ? (
         <ActivityIndicator />
       ) : (
@@ -131,24 +128,17 @@ function Getall() {
           style={{ marginTop: "15%" }}
           numColumns={2}
           data={data}
-          keyExtractor={({ productId }, index) => productId}
+          keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.productStyle}
-              onPress={() => navigation.navigate("Chi tiết sản phẩm", { item })}
+              onPress={() => navigation.navigate("Chi tiết sản phẩm BC", { item })}
             >
-              <Image
-                source={{
-                  uri: `https://agriudaethblc.azurewebsites.net/UploadImages/${item.image}`,
-                }}
-                style={styles.image}
-              ></Image>
+              <Image source={{ uri: item.src }} style={styles.image}></Image>
               <View style={styles.title}>
-                <Text style={styles.text}>Mã : {item.code}</Text>
+                <Text style={styles.text}>Mã : {item.qrCode}</Text>
                 <Text style={styles.text}>Tên: {item.name}</Text>
-                <Text style={styles.text}>
-                  Giá : {item.price.toLocaleString("en-US")} \1Kg
-                </Text>
+                <Text style={styles.text}>Giá : {item.price} \1Kg</Text>
               </View>
             </TouchableOpacity>
           )}
@@ -189,7 +179,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "white",
     borderRadius: 10,
-    height: 38,
+    height: 40,
   },
   textInputStyle: {
     borderWidth: 1,
@@ -200,5 +190,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#338f38",
     alignItems: "center",
     justifyContent: "space-between",
+    width: "100%",
   },
 });
