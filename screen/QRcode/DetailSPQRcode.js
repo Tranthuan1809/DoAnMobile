@@ -7,7 +7,7 @@ function DetailSPQRcode() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://agriudaethblc.azurewebsites.net/api/app/product")
+    fetch("https://agriudaethblc.azurewebsites.net/api/app/product?MaxResultCount=100")
       .then((response) => response.json())
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
