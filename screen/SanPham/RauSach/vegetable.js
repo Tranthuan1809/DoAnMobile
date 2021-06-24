@@ -43,7 +43,7 @@ export default function Product() {
         <ActivityIndicator />
       ) : (
         <FlatList
-          numColumns={99999}
+          numColumns={999}
           data={data}
           keyExtractor={({ productId }, index) => productId}
           renderItem={({ item }) => (

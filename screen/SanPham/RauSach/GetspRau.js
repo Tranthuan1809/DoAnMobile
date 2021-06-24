@@ -50,6 +50,7 @@ function Getall() {
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
+        activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -112,7 +113,7 @@ function Getall() {
         <SearchBar
           containerStyle={styles.textInputStyle}
           inputContainerStyle={styles.input}
-          placeholder="Type Here..."
+          placeholder="Nhập ở đây..."
           onChangeText={(text) => searchFilter(text)}
           value={search}
           underlineColorAndroid="transparent"

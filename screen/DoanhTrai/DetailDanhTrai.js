@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   textDL: { fontSize: 16, fontWeight: "bold" },
   productStyle: {
     width: 180,
-    maxHeight: 160,
+    maxHeight: 170,
     marginHorizontal: 6,
     borderWidth: 1,
     borderStyle: "solid",

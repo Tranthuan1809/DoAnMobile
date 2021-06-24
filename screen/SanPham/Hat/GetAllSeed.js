@@ -52,7 +52,6 @@ function Getall() {
       .finally(() => setLoading(false));
   }, [categoryID]);
 
-
   // useEffect(() => {
   //   fetch(
   //     `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`
@@ -65,7 +64,7 @@ function Getall() {
   //     .catch((error) => console.error(error))
   //     .finally(() => setLoading(false));
   // }, [categoryID]);
- 
+
   const fetchPost = () => {
     const apiURL = `https://agriudaethblc.azurewebsites.net/api/app/product/by-category/${categoryID}`;
     fetch(apiURL)
@@ -100,6 +99,7 @@ function Getall() {
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
+        activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -144,7 +144,7 @@ function Getall() {
         <SearchBar
           containerStyle={styles.textInputStyle}
           inputContainerStyle={styles.input}
-          placeholder="Type Here..."
+          placeholder="Nhập ở đây..."
           onChangeText={(text) => searchFilter(text)}
           value={search}
           underlineColorAndroid="transparent"

@@ -80,9 +80,11 @@ export default function App() {
       setfilterdData(text);
     }
   };
+  const [bgColor,setbgColor] = useState({})
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
+      activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -128,7 +130,7 @@ export default function App() {
           <SearchBar
             containerStyle={style.textInputStyle}
             inputContainerStyle={style.input}
-            placeholder="Type Here..."
+            placeholder="Nhập ở đây..."
             onChangeText={(text) => searchFilter(text)}
             value={search}
             underlineColorAndroid="transparent"

@@ -64,6 +64,7 @@ function Getall() {
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
+      activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -108,7 +109,7 @@ function Getall() {
         <SearchBar
           containerStyle={styles.textInputStyle}
           inputContainerStyle={styles.input}
-          placeholder="Type Here..."
+          placeholder="Nhập ở đây..."
           onChangeText={(text) => searchFilter(text)}
           value={search}
           underlineColorAndroid="transparent"
@@ -136,7 +137,7 @@ function Getall() {
             >
               <Image source={{ uri: item.src }} style={styles.image}></Image>
               <View style={styles.title}>
-                <Text style={styles.text}>Mã : {item.qrCode}</Text>
+                <Text style={styles.text}>Mã : {item.code}</Text>
                 <Text style={styles.text}>Tên: {item.name}</Text>
                 <Text style={styles.text}>Giá : {item.price} \1Kg</Text>
               </View>

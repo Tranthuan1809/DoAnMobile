@@ -38,13 +38,19 @@ function DetailProduct() {
         <Title style={styles.ctntext}>
           <Text style={styles.font}>Loại sản phẩm:</Text> {category.name}
         </Title>
-        <Title style={styles.fontNG}>
+        <Title style={styles.ctntext}>
           <Text style={styles.font}>Nguồn gốc:</Text> {product.addressFarm}
         </Title>
-        <Title style={styles.fontNG}>
+        <Title style={styles.ctntext}>
+          <Text style={styles.font}>Bảo quản:</Text> {product.preserve}
+        </Title>
+        <Title style={styles.ctntext}>
+          <Text style={styles.font}>Hạn sử dụng:</Text> {product.uses}
+        </Title>
+        <Title style={styles.ctntext}>
           <Text style={styles.font}>Chứng nhận:</Text> {product.certificate}
         </Title>
-        <Title style={styles.content}>Thông tin khác: {product.content}</Title>
+        <Title style={styles.content}>Thông tin khác:{'\n'} {product.content}</Title>
       </View>
     </View>
   );
@@ -54,7 +60,7 @@ const styles = StyleSheet.create({
   container: { backgroundColor: "green",flex:1 },
   font: { fontWeight: "bold" },
   fontNG: { paddingBottom: "1%" },
-  content: { fontSize: 14 },
-  ctntext: { fontSize: 16 },
+  content: { fontSize: 14,marginTop:5 },
+  ctntext: { fontSize: 16,marginTop:2 },
 });
 

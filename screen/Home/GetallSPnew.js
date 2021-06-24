@@ -27,7 +27,7 @@ function Getall() {
       .then((json) => setData(json.items))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [data]);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -66,6 +66,7 @@ function Getall() {
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
+        activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -109,7 +110,7 @@ function Getall() {
         <SearchBar
           containerStyle={styles.textInputStyle}
           inputContainerStyle={styles.input}
-          placeholder="Type Here..."
+          placeholder="Nhập ở đây..."
           onChangeText={(text) => searchFilter(text)}
           value={search}
           underlineColorAndroid="transparent"
@@ -125,7 +126,7 @@ function Getall() {
         <ActivityIndicator />
       ) : (
         <FlatList
-        style={{marginTop:'15%'}}
+          style={{ marginTop: "15%" }}
           numColumns={2}
           data={data}
           keyExtractor={({ id }, index) => id}

@@ -51,6 +51,7 @@ function Doanhtrai() {
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
+        activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -94,25 +95,32 @@ function Doanhtrai() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{position:'absolute',top:"3.5%",zIndex:2,flex:1,width:'100%'}}>
+      <View
+        style={{
+          position: "absolute",
+          top: "3.5%",
+          zIndex: 2,
+          flex: 1,
+          width: "100%",
+        }}
+      >
         <SearchBar
           containerStyle={styles.container}
           inputContainerStyle={styles.input}
-          placeholder="Seach bar react native"
+          placeholder="Tìm kiếm theo tên công ty"
           onChangeText={(text) => searchFilter(text)}
           value={search}
         />
         <FlatList
-        
           data={filterData}
           keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ItemView}
         />
       </View>
-      <ScrollView style={{zIndex: 0,marginTop:'15%'}}>
+      <ScrollView style={{ zIndex: 0, marginTop: "15%" }}>
         <FlatList
-          style={{ zIndex: 0}}
+          style={{ zIndex: 0 }}
           numColumns={2}
           data={data}
           renderItem={({ item }) => (
