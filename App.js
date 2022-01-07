@@ -51,7 +51,7 @@ function MyTabs() {
         },
       })}
       tabBarOptions={{
-        activeTintColor: "#338f38",
+        activeTintColor: "#FFD700",
         inactiveTintColor: "gray",
       }}
     >

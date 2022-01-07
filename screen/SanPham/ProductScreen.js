@@ -22,11 +22,11 @@ export default function App() {
       <View style={{
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"green",
+        backgroundColor:"#FFD700",
         padding:10,
         }}>
           <Text style={{
-            color:"#fff",
+            color:"#000000",
             fontSize:18,
             fontWeight:"bold"
           }}>
@@ -76,8 +76,8 @@ export default function App() {
 }
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "#338f38",
-    borderBottomColor: "#338f38",
+    backgroundColor: "#FFD700",
+    borderBottomColor: "#FFD700",
   },
   flexAll: {
     flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginRight:10
@@ -89,17 +89,17 @@ const style = StyleSheet.create({
   },
   getall: {
     fontSize: 16,
-    color: "#DE0000",
+    color: "#000000",
     marginTop: 7,
   },
   getfruit: {
     fontSize: 16,
-    color: "#DE0000",
+    color: "#000000",
     marginTop: 11,
   },
   getSeed: {
     fontSize: 16,
-    color: "#DE0000",
+    color: "#000000",
     marginTop: 11,
   },
   product: {
@@ -108,8 +108,8 @@ const style = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 8,
     fontWeight: "bold",
-    color: "white",
-    backgroundColor: "#338f38",
+    color: "black",
+    backgroundColor: "#FFD700",
     borderTopRightRadius: 10,
     minWidth: 180,
   },
@@ -122,8 +122,8 @@ const style = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 8,
     fontWeight: "bold",
-    color: "white",
-    backgroundColor: "#338f38",
+    color: "black",
+    backgroundColor: "#FFD700",
     borderTopRightRadius: 10,
     minWidth: 180,
   },
@@ -134,17 +134,17 @@ const style = StyleSheet.create({
     paddingBottom: 1,
     paddingRight: 8,
     fontWeight: "bold",
-    color: "white",
-    backgroundColor: "#338f38",
+    color: "black",
+    backgroundColor: "#FFD700",
     borderTopRightRadius: 10,
   },
   textInputStyle: {
     borderWidth: 1,
-    borderTopColor: "#338f38",
-    borderRightColor: "#338f38",
-    borderLeftColor: "#338f38",
-    borderBottomColor: "#338f38",
-    backgroundColor: "#338f38",
+    borderTopColor: "#FFD700",
+    borderRightColor: "#FFD700",
+    borderLeftColor: "#FFD700",
+    borderBottomColor: "#FFD700",
+    backgroundColor: "#FFD700",
     alignItems: "center",
     justifyContent: "space-between",
   },

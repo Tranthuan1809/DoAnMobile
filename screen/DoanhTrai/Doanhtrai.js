@@ -143,19 +143,19 @@ function Doanhtrai() {
 export default Doanhtrai;
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#338f38",
+    backgroundColor: "#FFD700",
     height: 55,
-    borderBottomColor: "#338f38",
+    borderBottomColor: "#FFD700",
   },
   input: { backgroundColor: "white", borderRadius: 10, height: 38 },
   item: {
-    backgroundColor: "#338f38",
+    backgroundColor: "#FFD700",
     borderRadius: 7,
     width: "47%",
     margin: "1.5%",
     height: "96%",
     borderWidth: 1,
-    borderColor: "#338f38",
+    borderColor: "#FFD700",
     paddingBottom: "2%",
   },
   image: {

@@ -17,10 +17,10 @@ function DetailProduct() {
           resizeMode: "stretch",
           height: 200,
           width: "auto",
-          borderBottomLeftRadius: 15,
-          borderBottomRightRadius: 15,
           borderColor: "green",
           borderRightWidth: 1,
+          margin:20,
+          borderRadius:50
         }}
         source={{
           uri: item.src,
@@ -51,16 +51,20 @@ function DetailProduct() {
         <Title style={styles.ctntext}>
           <Text style={styles.font}>Chứng nhận:</Text> {item.certificate}
         </Title>
-        <Title style={styles.content}>Thông tin khác:{'\n'} {item.content}</Title>
+        <Title style={styles.content}>
+          <Text style={styles.font}>
+          Thông tin khác:{'\n'} 
+          </Text>
+          {item.content}</Title>
       </View>
     </View>
   );
 }
 export default DetailProduct;
 const styles = StyleSheet.create({
-  container: { backgroundColor: "green", flex: 1 },
-  font: { fontWeight: "bold" },
+  container: { backgroundColor: "#FFD700", flex: 1 },
+  font: { fontWeight: "bold",fontSize:18 },
   fontNG: { paddingBottom: "1%" },
   content: { fontSize: 14 },
-  ctntext: { fontSize: 16 },
+  ctntext: { fontSize: 16, },
 });

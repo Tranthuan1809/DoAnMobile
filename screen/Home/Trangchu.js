@@ -80,11 +80,11 @@ export default function App() {
       setfilterdData(text);
     }
   };
-  const [bgColor,setbgColor] = useState({})
+  const [bgColor, setbgColor] = useState({});
   const ItemView = ({ item }) => {
     return (
       <TouchableOpacity
-      activeOpacity={0.9}
+        activeOpacity={0.9}
         style={{
           flexDirection: "row",
           backgroundColor: "white",
@@ -126,7 +126,7 @@ export default function App() {
           width: "100%",
         }}
       >
-        <View style={{flex:1, flexDirection: "row" }}>
+        <View style={{ flex: 1, flexDirection: "row" }}>
           <SearchBar
             containerStyle={style.textInputStyle}
             inputContainerStyle={style.input}
@@ -135,8 +135,16 @@ export default function App() {
             value={search}
             underlineColorAndroid="transparent"
           />
-          <TouchableOpacity onPress={()=>navigation.navigate('Mã QR')} style={{justifyContent:'center',width:'15%',alignItems:'center',backgroundColor:'#338f38'}}>
-            <Ionicons name="qr-code" size={35} color='white' />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Mã QR")}
+            style={{
+              justifyContent: "center",
+              width: "15%",
+              alignItems: "center",
+              backgroundColor: "#FFD700",
+            }}
+          >
+            <Ionicons name="qr-code" size={35} color="white" />
           </TouchableOpacity>
         </View>
         <FlatList
@@ -165,7 +173,14 @@ export default function App() {
             )}
           />
         </View>
-        <View style={{ flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginHorizontal:10}}>
+        <View
+          style={{
+            flexDirection: "row",
+            marginTop: 5,
+            justifyContent: "space-between",
+            marginHorizontal: 10,
+          }}
+        >
           <Text style={style.productNew}>Sản phẩm mới</Text>
           <TouchableOpacity
             style={{ marginTop: 5 }}
@@ -178,7 +193,14 @@ export default function App() {
         <View>
           <Product />
         </View>
-        <View style={{ flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginHorizontal:10}}>
+        <View
+          style={{
+            flexDirection: "row",
+            marginTop: 5,
+            justifyContent: "space-between",
+            marginHorizontal: 10,
+          }}
+        >
           <Text style={style.product}>Sản phẩm bán chạy</Text>
           <TouchableOpacity
             style={{ marginTop: 4 }}
@@ -191,7 +213,14 @@ export default function App() {
         <View>
           <ProductSPBC />
         </View>
-        <View style={{  flexDirection: "row", marginTop: 5 ,justifyContent:'space-between',marginHorizontal:10}}>
+        <View
+          style={{
+            flexDirection: "row",
+            marginTop: 5,
+            justifyContent: "space-between",
+            marginHorizontal: 10,
+          }}
+        >
           <Text style={style.product1}>Sản phẩm khuyến mãi</Text>
           <TouchableOpacity
             style={{ marginTop: 4 }}
@@ -215,9 +244,9 @@ const style = StyleSheet.create({
   //   backgroundColor: "white",
   // },
   container: {
-    backgroundColor: "#338f38",
+    backgroundColor: "#FFD700",
     height: 55,
-    borderBottomColor: "#338f38",
+    borderBottomColor: "#FFD700",
   },
   input: {
     backgroundColor: "white",
@@ -227,31 +256,31 @@ const style = StyleSheet.create({
   slide: { backgroundColor: "white", height: 160 },
   child: { width, justifyContent: "center" },
   getall: {
-    fontSize: 16,
-    color: "red",
+    fontSize: 14,
+    color: "black",
   },
   productNew: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#338f38",
+    color: "#000000",
   },
   product: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#338f38",
+    color: "#000000",
   },
   product1: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#338f38",
+    color: "#000000",
   },
   textInputStyle: {
     borderWidth: 1,
-    borderTopColor: "#338f38",
-    borderRightColor: "#338f38",
-    borderLeftColor: "#338f38",
-    borderBottomColor: "#338f38",
-    backgroundColor: "#338f38",
+    borderTopColor: "#FFD700",
+    borderRightColor: "#FFD700",
+    borderLeftColor: "#FFD700",
+    borderBottomColor: "#FFD700",
+    backgroundColor: "#FFD700",
     alignItems: "center",
     justifyContent: "space-between",
     width: "85%",

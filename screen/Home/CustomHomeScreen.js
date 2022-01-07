@@ -39,27 +39,27 @@ function CustomHomeScreen() {
         component={TrangchuScreen}
         name="Trang chu"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
+        options={{headerTintColor: 'black' ,headerBackTitleVisible: false}}
         component={DetailProductScreen}
         name="Chi tiết sản phẩm"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
+        options={{headerTintColor: 'black' ,headerBackTitleVisible: false}}
         component={GetAllScreen}
         name="Sản phẩm mới"></Stack.Screen>
       <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
+        options={{headerTintColor: 'black' ,headerBackTitleVisible: false}}
         component={GetallSPBCScreen}
         name="Sản phẩm bán chạy"></Stack.Screen>
         <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false}}
+        options={{headerTintColor: 'black' ,headerBackTitleVisible: false}}
         component={QRcodeScreen}
         name="QRcode"></Stack.Screen>
          <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false,title:"Sản phẩm bán chạy"}}
+        options={{headerTintColor: 'black' ,headerBackTitleVisible: false,title:"Sản phẩm bán chạy"}}
         component={GetAllSPBCScreen}
         name="Show all spbc"></Stack.Screen>
          <Stack.Screen
-        options={{headerTintColor: 'green' ,headerBackTitleVisible: false,title:"Chi tiết sản phẩm BC"}}
+        options={{headerTintColor: 'black' ,headerBackTitleVisible: false,title:"Chi tiết sản phẩm BC"}}
         component={DetailSPBC_SPKMcreen}
         name="Chi tiết sản phẩm BC"></Stack.Screen>
     </Stack.Navigator>

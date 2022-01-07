@@ -35,7 +35,7 @@ export default function Product() {
   const navigation = useNavigation();
   return (
     <ScrollView
-      style={{ backgroundColor: "#338f38", paddingVertical: 10 }}
+      style={{ backgroundColor: "#FFD700", paddingVertical: 10 }}
       horizontal={true}
     >
       {isLoading ? (

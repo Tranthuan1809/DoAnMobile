@@ -72,9 +72,9 @@ const style = StyleSheet.create({
     width: 170,
     maxHeight: 166,
     marginHorizontal: 6,
-    backgroundColor: "#338f38",
+    backgroundColor: "#eae9e9",
     borderStyle: "solid",
-    borderColor: "#81F781",
+    borderColor: "#FFD700",
     borderWidth: 1,
     borderRadius: 7,
     shadowColor: "#fff",
@@ -84,5 +84,5 @@ const style = StyleSheet.create({
     marginBottom: 10,
   },
   title: { paddingHorizontal: "2%" },
-  text: { color: "white", fontWeight: "bold" },
+  text: { color: "black", fontWeight: "bold" },
 });

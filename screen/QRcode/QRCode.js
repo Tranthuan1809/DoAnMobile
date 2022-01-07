@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Alert } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { useNavigation } from "@react-navigation/native";
 
@@ -16,7 +16,8 @@ export default function App() {
   const navigation = useNavigation();
   const handleBarCodeScanned = ({  data }) => {
     setScanned(true);
-    navigation.navigate("Chi tiết khi quét QR", { code: `${data}` });
+    Alert.alert('heloo')
+    // navigation.navigate("Chi tiết khi quét QR", { code: `${data}` });
   };
 
   if (hasPermission === null) {
