@@ -17,7 +17,7 @@ export default Product = () => {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/PhamTuanIT99/App_TCNS/master/sanpham.json"
+      "https://raw.githubusercontent.com/Tranthuan1809/DoAnMobile/master/sanpham.json"
     )
       .then((response) => response.json())
       .then((json) => setData(json.spbc))
