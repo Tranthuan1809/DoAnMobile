@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Text } from "react-native";
 
 const Title = styled.Text`
-  color: white;
+  color: black;
 `;
 function DetailProduct() {
   const route = useRoute();
@@ -62,7 +62,7 @@ function DetailProduct() {
 }
 export default DetailProduct;
 const styles = StyleSheet.create({
-  container: { backgroundColor: "#FFD700", flex: 1 },
+  container: { backgroundColor: "#FFFAFA", flex: 1 },
   font: { fontWeight: "bold",fontSize:18 },
   fontNG: { paddingBottom: "1%" },
   content: { fontSize: 14 },
